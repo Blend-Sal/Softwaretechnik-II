@@ -8,7 +8,6 @@ public class Softwaretechnik2Application {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Softwaretechnik2Application.class, args);
-        QRCodeGenerator.generateQRCodeImage("Hurensohn");
 
     }
 
