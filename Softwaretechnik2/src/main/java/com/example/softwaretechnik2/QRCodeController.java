@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 
 import net.glxn.qrgen.core.image.ImageType;
 import net.glxn.qrgen.javase.QRCode;
@@ -20,8 +19,8 @@ public class QRCodeController {
         return "index";
     }
 
-    @GetMapping("/QR-Code")
-    public String getQRCode(@RequestParam String link, Model model) throws IOException {
+    @PostMapping("/QRCode")
+    public String getQRCode(@RequestParam String link, Model model) {
         ByteArrayOutputStream outputStream = QRCode.from(link).to(ImageType.PNG).stream();
         String qrCodeBase64 = java.util.Base64.getEncoder().encodeToString(outputStream.toByteArray());
         model.addAttribute("qrCode", qrCodeBase64);
