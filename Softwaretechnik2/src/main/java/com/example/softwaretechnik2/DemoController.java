@@ -1,21 +1,29 @@
 package com.example.softwaretechnik2;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+import java.util.Optional;
+
+@Controller
 public class DemoController {
     @Autowired
-    ProduktRepository repo;
-
+    ProductRepository repo;
     @Autowired
-    DemoService demoService;
+    ProductService productService;
 
-    @GetMapping("/demo")
-    public String demo() {
-        //repo.save(new Demo());
-        //System.out.println(demoService.generateRandString());
+    @GetMapping("/")
+    public String demo(Model model) {
+        Product salamibrötchen = new Product();
+        salamibrötchen.setProductName("Salamibrötchen");
+
+        productService.addProduct(salamibrötchen);
+
+        Optional<Product> product = repo.findById(1L);
+        model.addAttribute("salamibrötchen",product.get().getProductName());
+
         return "demo";
     }
 }
