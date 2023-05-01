@@ -19,6 +19,7 @@ public class QRCodeController {
     }
 
     @PostMapping("/QRCode")
+
     public String getQRCode(@RequestParam String link, Model model) {
         if (link.isEmpty()) {
             return "error3";
