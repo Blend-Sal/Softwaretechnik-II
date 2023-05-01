@@ -20,7 +20,9 @@ public class QRCodeController {
 
     @PostMapping("/QRCode")
     public String getQRCode(@RequestParam String link, Model model) {
-
+        if (link.isEmpty()) {
+            return "error3";
+        }
         ByteArrayOutputStream outputStream = QRCode.from(link).withSize(400, 400).to(ImageType.PNG).stream();
         String qrCodeBase64 = java.util.Base64.getEncoder().encodeToString(outputStream.toByteArray());
         model.addAttribute("qrCode", qrCodeBase64);
