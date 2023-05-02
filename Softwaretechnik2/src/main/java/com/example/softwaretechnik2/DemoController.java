@@ -12,7 +12,7 @@ public class DemoController {
     @Autowired
     DemoService demoService;
 
-    @GetMapping("/")
+    @GetMapping("/login")
     public String demo() {
         repo.save(new Demo());
         System.out.println(demoService.generateRandString());
