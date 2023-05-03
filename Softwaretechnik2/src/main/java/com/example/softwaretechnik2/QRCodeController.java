@@ -25,11 +25,12 @@ public class QRCodeController {
             return "error3";
         } else if (link.length() > 2952) {
             return "error2";
+        } else {
+            ByteArrayOutputStream outputStream = QRCode.from(link).withSize(400, 400).to(ImageType.PNG).stream();
+            String qrCodeBase64 = java.util.Base64.getEncoder().encodeToString(outputStream.toByteArray());
+            model.addAttribute("qrCode", qrCodeBase64);
+            return "qrCode";
         }
-        ByteArrayOutputStream outputStream = QRCode.from(link).withSize(400, 400).to(ImageType.PNG).stream();
-        String qrCodeBase64 = java.util.Base64.getEncoder().encodeToString(outputStream.toByteArray());
-        model.addAttribute("qrCode", qrCodeBase64);
-        return "qrCode";
-    }
 
+    }
 }
