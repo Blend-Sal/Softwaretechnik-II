@@ -23,7 +23,7 @@ public class QRCodeController {
     public String getQRCode(@RequestParam String link, Model model) {
         if (link.isEmpty()) {
             return "error3";
-        } else if (link.length() > 2952) {
+        } else if (link.length() > 2953) {
             return "error2";
         } else {
             ByteArrayOutputStream outputStream = QRCode.from(link).withSize(400, 400).to(ImageType.PNG).stream();
