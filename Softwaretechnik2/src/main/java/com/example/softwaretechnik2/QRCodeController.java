@@ -13,7 +13,7 @@ import java.io.ByteArrayOutputStream;
 @Controller
 public class QRCodeController {
 
-    String regex = "\\b(https?|ftp|file|http|www| ):[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+    String regex = "\\b(https?|ftp|file|http)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 
     @GetMapping("/")
     public String index() {
