@@ -16,13 +16,8 @@ public class DemoController {
 
     @GetMapping("/")
     public String demo(Model model) {
-        Product salamibrötchen = new Product();
-        salamibrötchen.setProductName("Salamibrötchen");
-
-        productService.addProduct(salamibrötchen);
-
-        Optional<Product> product = repo.findById(1L);
-        model.addAttribute("salamibrötchen",product.get().getProductName());
+        //Optional<Product> product = repo.findById(1L);
+        //model.addAttribute("salamibrötchen",product.get().getProductName());
 
         return "demo";
     }
