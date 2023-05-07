@@ -1,7 +1,6 @@
 package com.example.softwaretechnik2;
 
 import javax.persistence.*;
-import java.awt.color.ProfileDataException;
 
 @Entity
 @Table(name = "product")
