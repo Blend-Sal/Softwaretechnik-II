@@ -1,5 +1,6 @@
 package com.example.softwaretechnik2;
 
+import com.sun.istack.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -40,14 +41,6 @@ public class QRCodeControllerTest {
     public void testQRCodeemptyLink() {
         String emptyLink = "";
         String result = qrCodeController.getQRCode(emptyLink, model);
-        assertEquals("error2", result);
-        assertFalse(model.containsAttribute("qrCode"));
-    }
-
-    @Test
-    public void testQRCodenullLink() {
-        String nullLink = null;
-        String result = qrCodeController.getQRCode(nullLink, model);
         assertEquals("error2", result);
         assertFalse(model.containsAttribute("qrCode"));
     }

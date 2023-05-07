@@ -15,7 +15,7 @@ public class QRCodeController {
 
     String regex = "\\b(https?|ftp|file|http)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 
-    @GetMapping("/")
+    @GetMapping("/index")
     public String index() {
         return "index";
     }
