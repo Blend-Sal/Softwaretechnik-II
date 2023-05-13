@@ -1,6 +1,5 @@
 package com.example.softwaretechnik2;
 
-import com.sun.istack.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
