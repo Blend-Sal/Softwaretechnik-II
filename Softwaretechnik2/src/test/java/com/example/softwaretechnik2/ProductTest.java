@@ -1,5 +1,8 @@
 package com.example.softwaretechnik2;
 
+import com.example.softwaretechnik2.model.Product;
+import com.example.softwaretechnik2.repositories.ProductRepository;
+import com.example.softwaretechnik2.services.ProductService;
 import  org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
