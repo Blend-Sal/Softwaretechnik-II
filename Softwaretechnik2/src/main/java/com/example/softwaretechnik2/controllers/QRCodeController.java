@@ -1,14 +1,11 @@
-package com.example.softwaretechnik2;
+package com.example.softwaretechnik2.controllers;
 
-import net.glxn.qrgen.core.image.ImageType;
-import net.glxn.qrgen.javase.QRCode;
+import com.example.softwaretechnik2.QRCodeGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.io.ByteArrayOutputStream;
 
 @Controller
 public class QRCodeController extends QRCodeGenerator {
