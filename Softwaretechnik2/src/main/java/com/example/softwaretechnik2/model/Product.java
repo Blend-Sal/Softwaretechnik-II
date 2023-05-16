@@ -1,4 +1,4 @@
-package com.example.softwaretechnik2;
+package com.example.softwaretechnik2.model;
 
 import javax.persistence.*;
 
