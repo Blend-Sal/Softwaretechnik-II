@@ -1,5 +1,6 @@
-package com.example.softwaretechnik2;
+package com.example.softwaretechnik2.repositories;
 
+import com.example.softwaretechnik2.model.Product;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
