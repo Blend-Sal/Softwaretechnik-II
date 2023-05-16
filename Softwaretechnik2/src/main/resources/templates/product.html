@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Asta-Shop</title>
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          crossorigin="anonymous"/>
+</head>
+<body>
+<h1>Products</h1>
+<div class="list-group" th:each="product : ${products}">
+    <a href="#" class="list-group-item list-group-item-action active" th:text="${product.getProductName()}"></a>
+</div>
+</body>
+</html>
