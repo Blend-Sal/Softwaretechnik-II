@@ -1,5 +1,7 @@
-package com.example.softwaretechnik2;
+package com.example.softwaretechnik2.services;
 
+import com.example.softwaretechnik2.model.Product;
+import com.example.softwaretechnik2.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
