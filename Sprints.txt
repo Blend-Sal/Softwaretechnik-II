@@ -1,22 +1,24 @@
 Verteilung der Issues und Anzahl an Story Points pro Sprint.
----------------------
+---------------------------------------------------------------
 Sprint 1:
 Story points geschafft: 76
 Issues ohne Mitgliedernamen wurden von allen Gruppenmitgliedern erledigt.
----------------------
+---------------------------------------------------------------
 Sprint 2:
 Story Points geschafft: 42
-Datenbank ausreifen: Luis
-Login Spring Security Fenster austauschen: Ali, Kawthar
-QR-Code Implementierung: Blend, Igor, Leon
-----------------------
+Issues:
+	Datenbank ausreifen: Luis
+	Login Spring Security Fenster austauschen: Ali, Kawthar
+	QR-Code Implementierung: Blend, Igor, Leon
+----------------------------------------------------------------
 Sprint 3:
 Story points geschafft: TBD
-Testkonzept erstellen und in DOD ergänzen: Alle
-Produktseite erstellen: Kawthar, Ali
-QR-Code aufteilen in QR-Code Generator und QR-Code Controller: Blend
-Anpassungen Issues, Readme.MD, Branches: Blend
-Startseite erstellen (Optional): Luis, Blend
-LF-150 Mitarbeiter legt neues Produkt an: Luis, Blend
-Pipeline erstellen: Igor, Leon
------------------------
+Issues:	
+	Testkonzept erstellen und in DOD ergänzen: Alle
+	Produktseite erstellen: Kawthar, Ali
+	QR-Code aufteilen in QR-Code Generator und QR-Code Controller: Blend
+	Anpassungen Issues, Readme.MD, Branches: Blend
+	Startseite erstellen (Optional): Luis, Blend
+	LF-150 Mitarbeiter legt neues Produkt an: Luis, Blend
+	Pipeline erstellen: Igor, Leon
+-----------------------------------------------------------------
