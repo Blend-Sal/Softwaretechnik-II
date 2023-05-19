@@ -5,7 +5,7 @@ Story points geschafft: 76
 Issues ohne Mitgliedernamen wurden von allen Gruppenmitgliedern erledigt.
 ---------------------------------------------------------------
 Sprint 2:
-Story Points geschafft: 42
+Story Points geschafft: 50
 Issues:
 	Datenbank ausreifen: Luis
 	Login Spring Security Fenster austauschen: Ali, Kawthar
