@@ -10,8 +10,9 @@
 </head>
 <body>
 <h1>Products</h1>
-<div class="list-group" th:each="product : ${products}">
-    <a href="#" class="list-group-item list-group-item-action active" th:text="${product.getProductName()}"></a>
+<div class="list-group align-middle" th:each="product : ${products}">
+    <a href="#" class="list-group-item list-group-item-action w-25 m-lg-3 active" th:text="${product.getProductName()}">
+    </a>
 </div>
 </body>
 </html>
