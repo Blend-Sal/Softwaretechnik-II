@@ -5,13 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Asta-Shop</title>
-    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           crossorigin="anonymous"/>
 </head>
 <body>
-<h1>Products</h1>
-<div class="list-group align-middle" th:each="product : ${products}">
-    <a href="#" class="list-group-item list-group-item-action w-25 m-lg-3 active" th:text="${product.getProductName()}">
+<div class="list-group align-middle" th:each="product : ${products}" th:if="${product != null}">
+    <a href="#" class="list-group-item list-group-item-action w-25 m-lg-3 active"
+       th:text="${product.getProductName()}">
     </a>
 </div>
 </body>
