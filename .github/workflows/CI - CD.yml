@@ -12,6 +12,7 @@ on:
   push:
     branches:
       - Pipeline-erstellen-SP-13
+      - main
 
 jobs:
   build:
