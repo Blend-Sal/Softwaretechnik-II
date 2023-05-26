@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>QR Code</title>
+</head>
+<body>
+<img th:src="'data:image/png;base64,' + ${qrCode}"/>
+<button type="button" class="btn btn-primary m-lg-3" th:onclick="|window.location.href='/index'|">QR-Code Generator</button>
+</script>
+</body>
+</html>
