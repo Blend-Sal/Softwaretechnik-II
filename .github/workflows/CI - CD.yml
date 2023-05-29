@@ -12,6 +12,7 @@ on:
   push:
     branches:
       - Pipeline-erstellen-SP-13
+      - Detailansicht-von-Produkt-SP--21
 
 jobs:
   build:
