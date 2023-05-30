@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detailansicht</title>
+</head>
+<body>
+<h1 th:text="${productname}">Name des Produktes</h1>
+<img th:src="${image}" alt="Bild des Produktes" src="">
+<h2>Verfügbarkeit</h2>
+<p th:text="${availability}"></p>
+<h2>Halal?</h2>
+<label>
+    <input type="checkbox" th:checked="${halal}" enabled>
+</label>
+<label>Halal</label>
+<h2>Koscher?</h2>
+<label>
+    <input type="checkbox" th:checked="${kosher}" enabled>
+</label>
+<label>Koscher</label>
+<h2>Vegetarisch?</h2>
+<label>
+    <input type="checkbox" th:checked="${vegetarian}" enabled>
+</label>
+<label>Vegetarisch</label>
+<h2>Vegan?</h2>
+<label>
+    <input type="checkbox" th:checked="${vegan}" enabled>
+</label>
+<label>Vegan</label>
+<h2>Mögliche Allergene</h2>
+<p th:text="${allergens}"></p>
+<h2>Zutaten</h2>
+<ul>
+    <li th:each="ingredient : ${ingredients}" th:text="${ingredient}"></li>
+</ul>
+</body>
+</html>

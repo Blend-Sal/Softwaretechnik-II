@@ -27,6 +27,11 @@ public class ProductController extends Product {
         return "produkterstellung";
     }
 
+    @GetMapping("/detailsofproduct")
+    public String getDetails() {
+        return "detailsofproduct";
+    }
+
     @PostMapping("/produkterstellung")
     public String post(@ModelAttribute Product newProduct) {
         if (productService.checkIfProductExists(newProduct)) {
