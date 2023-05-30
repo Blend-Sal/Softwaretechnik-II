@@ -16,8 +16,9 @@ public class ProductController extends Product {
     ProductRepository repo;
     @Autowired
     ProductService productService;
-    @GetMapping("/product")
-    public String getProd() {
+    @GetMapping("/products")
+    public String getProd(Model model) {
+        model.addAttribute("products", repo.findAll());
         return "product";
     }
 
