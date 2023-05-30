@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class ProductController extends Product {
     @Autowired
@@ -17,8 +20,11 @@ public class ProductController extends Product {
     @Autowired
     ProductService productService;
     @GetMapping("/product")
-    public String getProd() {
+    public String getProd(Model model) {
+        List<Product> products = repo.getAllByProductNameIsNotNull();
+        model.addAttribute("products", products);
         return "product";
+
     }
 
     @GetMapping("/produkterstellung")
