@@ -11,9 +11,13 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Long> {
     public List<Product> findProductsByCategory(String category);
-           List<Product> getAllByProductNameIsNotNull();
+
+    List<Product> getAllByProductNameIsNotNull();
+
     public Product findProductById(Long id);
+
     public Product findProductByProductName(String productName);
+
     @Transactional
     public void deleteProductByProductName(String s);
 }
