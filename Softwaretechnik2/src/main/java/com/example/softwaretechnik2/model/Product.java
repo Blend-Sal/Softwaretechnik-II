@@ -2,7 +2,6 @@ package com.example.softwaretechnik2.model;
 
 import javax.persistence.*;
 import java.util.List;
-
 @Entity
 @Table(name = "product")
 public class Product {
@@ -22,8 +21,8 @@ public class Product {
     private String category;
 
     @Column(name = "Image")
-    private String image;
-
+    @Lob
+    byte[] image;
     @Column(name = "Allergens")
     private String allergens;
 
@@ -100,11 +99,11 @@ public class Product {
         return true;
     }
 
-    public String getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
@@ -158,7 +157,7 @@ public class Product {
     }
 
     public void setAvailability(Availability availability) {
-        this.availability = availability.name();
+        this.availability = availability.getDisplayValue();
     }
 
     public float getPrice() {
