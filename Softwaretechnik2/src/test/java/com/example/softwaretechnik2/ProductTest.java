@@ -148,7 +148,7 @@ class ProductTest extends Product {
         Product test = new Product();
         test.setAvailability(Availability.FULL);
         repo.save(test);
-        assertEquals("FULL", test.getAvailability());
+        assertEquals("Full", test.getAvailability());
         repo.delete(test);
     }
 
