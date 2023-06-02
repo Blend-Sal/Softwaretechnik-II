@@ -24,7 +24,7 @@ public class SpringSecurity {
                 .and()
                 .formLogin(form -> form.loginPage("/login")
                         .loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/start", true)
+                        .defaultSuccessUrl("/product", true)
                         .permitAll())
                 .logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                         .permitAll());
