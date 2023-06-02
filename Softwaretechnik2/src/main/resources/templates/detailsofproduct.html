@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Product Details</title>
@@ -7,11 +7,18 @@
 </head>
 <body>
 <button type="submit">
-    <img src="https://cdn-icons-png.flaticon.com/512/61/61972.png" height="50" width="50" alt="buttonpng"/>
+    <img src="https://cdn-icons-png.flaticon.com/512/61/61972.png" height="50" width="50" alt="buttonpng" th:onclick="|window.location.href='/start'|">
 </button>
 <div class="container">
     <h1 class="mb-4" th:text="${product.getProductName()}"></h1>
-    <img th:src="'data:image/png;base64,' + ${Image}" class="img-thumbnail" alt="Produkt">
+    <img th:src="'data:image/png;base64,' + ${Image}" class="img-thumbnail" alt="Produkt" src="">
+    <h2 class="mb-4" th:text="${product.getPrice()}"></h2>
+    <h3 class="mb-4" th:text="${product.getAvailability()}"></h3>
+    <h4 class="mb-4" th:text="${product.getProductName()}"></h4>
+    <h5 class="mb-4" th:text="${product.isKosher()}"></h5>
+    <h6 class="mb-4" th:text="${product.isHalal()}"></h6>
+    <h7 class="mb-4" th:text="${product.isVegan()}"></h7>
+    <h8 class="mb-4" th:text="${product.isVegetarian()}"></h8>
 </div>
 </body>
 </html>
