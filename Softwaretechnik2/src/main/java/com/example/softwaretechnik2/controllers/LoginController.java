@@ -16,9 +16,6 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login(Model model) {
-        //Optional<Product> product = repo.findById(1L);
-        //model.addAttribute("salamibrötchen",product.get().getProductName());
-
         return "login";
     }
 }
