@@ -20,6 +20,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
 
+import java.util.List;
+
 @Controller
 //@RequestMapping("/product")
 public class ProductController extends Product {
@@ -31,8 +33,11 @@ public class ProductController extends Product {
     private ServletContext servletContext;
 
     @GetMapping("/product")
-    public String getProd() {
-        return "product";
+    public String getProd(Model model) {
+        List<Product> products = repo.getAllByProductNameIsNotNull();
+        model.addAttribute("products", products);
+        return "productList";
+
     }
 
     @GetMapping("/produkterstellung")
