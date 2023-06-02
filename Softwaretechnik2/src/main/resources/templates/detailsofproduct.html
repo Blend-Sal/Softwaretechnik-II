@@ -67,14 +67,18 @@
         <div class="col-md-6">
             <div class="row">
                 <div class="col-6">
-                    <h6 class="mb-4">Price</h6>
-                    <h6 class="mb-4">Availability</h6>
-                    <h6 class="mb-4">Product Name</h6>
+                    <h6 class="mb-4">Preis</h6>
+                    <h6 class="mb-4">Verfügbarkeit</h6>
+                    <h6 class="mb-4">Produktname</h6>
+                    <h6 class="mb-4">Zutaten</h6>
+                    <h6 class="mb-4">Allergene</h6>
                 </div>
                 <div class="col-6">
                     <h6 class="mb-4" th:text="${product.getPrice()}"></h6>
                     <h6 class="mb-4" th:text="${product.getAvailability()}"></h6>
                     <h6 class="mb-4" th:text="${product.getProductName()}"></h6>
+                    <h6 class="mb-4" th:text="${product.getIngredients()}"></h6>
+                    <h6 class="mb-4" th:text="${product.getAllergens()}"></h6>
                 </div>
             </div>
             <div class="row">
@@ -85,10 +89,10 @@
                     <h6 class="mb-4">Vegetarian</h6>
                 </div>
                 <div class="col-6">
-                    <h6 class="mb-4" th:text="${product.isKosher()} ? 'Yes' : 'No'"></h6>
-                    <h6 class="mb-4" th:text="${product.isHalal()} ? 'Yes' : 'No'"></h6>
-                    <h6 class="mb-4" th:text="${product.isVegan()} ? 'Yes' : 'No'"></h6>
-                    <h6 class="mb-4" th:text="${product.isVegetarian()} ? 'Yes' : 'No'"></h6>
+                    <h6 class="mb-4" th:text="${product.isKosher()} ? 'Ja' : 'Nein'"></h6>
+                    <h6 class="mb-4" th:text="${product.isHalal()} ? 'Ja' : 'Nein'"></h6>
+                    <h6 class="mb-4" th:text="${product.isVegan()} ? 'Ja' : 'Nein'"></h6>
+                    <h6 class="mb-4" th:text="${product.isVegetarian()} ? 'Ja' : 'Nein'"></h6>
                 </div>
             </div>
         </div>
