@@ -13,6 +13,7 @@ public class QRCodeGenerator {
 
         ByteArrayOutputStream outputStream = QRCode.from(link).withSize(400, 400).to(ImageType.PNG).stream();
         String qrCodeBase64 = java.util.Base64.getEncoder().encodeToString(outputStream.toByteArray());
+        System.out.println(qrCodeBase64);
         model.addAttribute("qrCode", qrCodeBase64);
         return "qrCode";
     }

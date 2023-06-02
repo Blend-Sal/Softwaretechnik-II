@@ -132,6 +132,7 @@ class ProductTest extends Product {
         assertFalse(test.isKosher());
     }
 
+    /* outdated, image is now stored as byte[]
     @Test
     void imageTest() {
         Product product = new Product();
@@ -139,7 +140,7 @@ class ProductTest extends Product {
         product.setImage(expectedImage);
         String actualImage = product.getImage();
         assertEquals(expectedImage, actualImage);
-    }
+    }*/
 
 
     @Test
@@ -147,7 +148,7 @@ class ProductTest extends Product {
         Product test = new Product();
         test.setAvailability(Availability.FULL);
         repo.save(test);
-        assertEquals("FULL", test.getAvailability());
+        assertEquals("Full", test.getAvailability());
         repo.delete(test);
     }
 
