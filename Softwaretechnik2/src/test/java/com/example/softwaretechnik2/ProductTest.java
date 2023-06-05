@@ -116,7 +116,7 @@ class ProductTest extends Product {
     @Test
     void onlyStringInputSetIngredients() {
         Product test = new Product();
-        List<String> ingredients = Arrays.asList("Salamibrötchen", "Schokobrötchen");
+        String ingredients = "Salamibrötchen, Schokobrötchen";
         assertTrue(test.setIngredients(ingredients));
     }
 
@@ -148,14 +148,14 @@ class ProductTest extends Product {
         Product test = new Product();
         test.setAvailability(Availability.FULL);
         repo.save(test);
-        assertEquals("Full", test.getAvailability());
+        assertEquals("Voll", test.getAvailability());
         repo.delete(test);
     }
 
     @Test
     void properAvailabilityDisplayName() {
         Availability a = Availability.FULL;
-        assertEquals("Full", a.getDisplayValue());
+        assertEquals("Voll", a.getDisplayValue());
     }
 
     @Test
