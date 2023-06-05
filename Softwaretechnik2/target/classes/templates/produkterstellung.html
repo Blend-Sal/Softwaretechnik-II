@@ -1,55 +1,111 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Produkterstellung</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<h1>Neues Produkt anlegen</h1>
+<div class="container">
+    <h1>Neues Produkt anlegen</h1>
 
-<form method="post" th:action="@{/produkterstellung}" enctype="multipart/form-data">
-    <label for="produktName">Name des Produktes*:</label>
-    <input type="text" id="produktName" name="productName" required ><br><br>
+    <form method="post" th:action="@{/produkterstellung}" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="produktName">Name des Produktes*:</label>
+            <input type="text" id="produktName" name="productName" required class="form-control">
+        </div>
 
-    <label for="bild">Bild*:</label>
-    <input type="file" id="bild" name="image" accept="image/*" required><br><br>
+        <div class="form-group">
+            <label for="bild">Bild*:</label>
+            <input type="file" id="bild" name="image" accept="image/*" required class="form-control-file">
+        </div>
 
-    <label for="preis">Preis*:</label>
-    <input type="number" step="0.01" min="0.0" id="preis" name="price" required><span>€</span><br><br>
+        <div class="form-group">
+            <label for="preis">Preis*:</label>
+            <input type="number" step="0.01" min="0.0" id="preis" name="price" required class="form-control">
+            <span>€</span>
+        </div>
 
-    <label for="verfügbarkeit">Verfügbarkeit:</label><br>
-        <select name="availability" id="verfügbarkeit">
-            <option th:each="availabilityOpt : ${T(com.example.softwaretechnik2.model.Availability).values()}"
-                    th:value="${availabilityOpt}" th:text="${availabilityOpt.displayValue}"></option>
-        </select><br><br>
+        <div class="form-group">
+            <label for="verfügbarkeit">Verfügbarkeit:</label>
+            <select name="availability" id="verfügbarkeit" class="form-control">
+                <option th:each="availabilityOpt : ${T(com.example.softwaretechnik2.model.Availability).values()}"
+                        th:value="${availabilityOpt}" th:text="${availabilityOpt.displayValue}"></option>
+            </select>
+        </div>
 
-    <label for="halal">Halal?</label>
-    <input type="checkbox" id="halal" name="halal"><br><br>
+        <div class="form-group form-check">
+            <label for="halal" class="form-check-label">
+                <input type="checkbox" id="halal" name="halal" class="form-check-input"> Halal?
+            </label>
+        </div>
 
-    <label for="koscher">Koscher?</label>
-    <input type="checkbox" id="koscher" name="kosher"><br><br>
+        <div class="form-group form-check">
+            <label for="koscher" class="form-check-label">
+                <input type="checkbox" id="koscher" name="kosher" class="form-check-input"> Koscher?
+            </label>
+        </div>
 
-    <label for="vegetarisch">Vegetarisch?</label>
-    <input type="checkbox" id="vegetarisch" name="vegetarian"><br><br>
+        <div class="form-group form-check">
+            <label for="vegetarisch" class="form-check-label">
+                <input type="checkbox" id="vegetarisch" name="vegetarian" class="form-check-input"> Vegetarisch?
+            </label>
+        </div>
 
-    <label for="vegan">Vegan?</label>
-    <input type="checkbox" id="vegan" name="vegan"><br><br>
+        <div class="form-group form-check">
+            <label for="vegan" class="form-check-label">
+                <input type="checkbox" id="vegan" name="vegan" class="form-check-input"> Vegan?
+            </label>
+        </div>
 
-    <label for="allergene">Moegliche Allergene:</label><br>
-    <textarea id="allergene" name="allergens"></textarea><br><br> <!--resize off-->
+        <div class="form-group">
+            <label for="allergene">Moegliche Allergene:</label>
+            <textarea id="allergene" name="allergens" class="form-control"></textarea>
+        </div>
 
-    <label for="inhaltsstoffe">Zutaten:</label><br>
-    <datalist id="inhaltsstoffe"></datalist>
-    <label><input type="text" list="inhaltsstoffe" multiple></label><br>
-    <details>
-        <summary>Liste an Inhaltsstoffen</summary>
-        <p>Weizenmehl<br>Kuhmilch<br>Zucker<br>Kaffee<br>Wasser<br>Kakao</p>
-    </details>
+        <div class="form-group">
+            <label for="inhaltsstoffe">Zutaten:</label>
+            <input type="text" list="inhaltsstoffe" id="ingredient-input" name="ingredients" class="form-control">
+            <datalist id="inhaltsstoffe">
+                <option>Weizenmehl</option>
+                <option>Kuhmilch</option>
+                <option>Zucker</option>
+                <option>Kaffee</option>
+                <option>Wasser</option>
+                <option>Kakao</option>
+            </datalist>
+        </div>
+        <details>
+            <summary>Liste an Inhaltsstoffen</summary>
+            <p>Weizenmehl<br>Kuhmilch<br>Zucker<br>Kaffee<br>Wasser<br>Kakao</p>
+        </details>
 
-    <p>Pflichtfelder sind mit '*' gekennzeichnet.</p> <!--cursive-->
-    <input type="submit" value="Produkt speichern" onclick="showNotification()">
-    <button type="button" class="btn btn-primary m-lg-3" th:onclick="|window.location.href='/product'|">Produktseite</button>
-    <button type="button" class="btn btn-primary m-lg-3" th:onclick="|window.location.href='/start'|">Startseite</button>
+        <p>Pflichtfelder sind mit '*' gekennzeichnet.</p>
+        <input type="submit" value="Produkt speichern" onclick="showNotification()" class="btn btn-primary">
+        <button type="button" class="btn btn-primary" th:onclick="|window.location.href='/product'|">Produktseite
+        </button>
+        <button type="button" class="btn btn-primary" th:onclick="|window.location.href='/product'|">Startseite</button>
+    </form>
+</div>
 
-</form>
+<script>
+    $(document).ready(function () {
+        $('#ingredient-input').on('input', function () {
+            const inputField = $(this);
+            const selectedIngredient = inputField.val();
+            const options = $('#inhaltsstoffe option');
+
+            options.each(function() {
+                if ($(this).val() === selectedIngredient) {
+                    const currentValue = inputField.data('selected') || '';
+                    const newValue = currentValue ? currentValue + ', ' + selectedIngredient : selectedIngredient;
+                    inputField.data('selected', newValue);
+                    inputField.val(newValue);
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
+
