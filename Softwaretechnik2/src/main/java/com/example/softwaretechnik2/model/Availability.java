@@ -1,11 +1,11 @@
 package com.example.softwaretechnik2.model;
 
 public enum Availability {
-    EMPTY("Empty"),
-    LOW("Low"),
-    HALF("Half"),
-    NEARLY_FULL("Nearly full"),
-    FULL("Full");
+    EMPTY("Leer"),
+    LOW("Gering"),
+    HALF("Hälfte noch da"),
+    NEARLY_FULL("Nahezu voll"),
+    FULL("Voll");
 
     private final String displayValue;
 
