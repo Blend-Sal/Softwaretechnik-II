@@ -44,9 +44,8 @@ public class Product {
     @Column(name = "Price")
     private float price;
 
-    @ElementCollection
     @Column(name = "Ingredients")
-    private List<String> ingredients;
+    private String ingredients;
 
     public boolean isEqualTo(Product anotherProduct) {
         return this.productName.equals(anotherProduct.productName);
@@ -173,13 +172,13 @@ public class Product {
         return true;
     }
 
-    public List<String> getIngredients() {
+    public String getIngredients() {
         return ingredients;
     }
 
-    public boolean setIngredients(List<String> ingredients) {
-        String regex = "^[a-zA-ZäöüÄÖÜ,\\s]+$";
-        if (!ingredients.stream().allMatch(ingredient -> ingredient.matches(regex))) {
+    public boolean setIngredients(String ingredients) {
+        String regex = "^([^0-9]*)$";
+        if (!ingredients.matches(regex)) {
             return false;
         } else {
             this.ingredients = ingredients;

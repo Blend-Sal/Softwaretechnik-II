@@ -14,13 +14,12 @@ public class QRCodeController extends QRCodeGenerator {
 
     String regex = "\\b(https?|ftp|file|http)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
 
-    @GetMapping("/index")
-    public String index() {
+    @GetMapping("/qrcodeinput")
+    public String qrcodeinput() {
         return "qrcodeinput";
     }
 
     @PostMapping("/QRCode")
-
     public String getQRCode(@RequestParam String link, Model model) {
         if (!link.matches(regex)) {
             return "error2";
