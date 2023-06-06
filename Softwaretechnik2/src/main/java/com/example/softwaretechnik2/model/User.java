@@ -4,7 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,19 +26,27 @@ public class User {
     private Long id;
 
     @Column(nullable = false)
+    @Size(min=2, max=20)
     private String firstName;
 
     @Column(nullable = false)
+    @Size(min=2, max=20)
     private String lastName;
 
     @Column(nullable = false, unique = true, length  = 55)
+    @Email(message="email ist ungültig")
     private String email;
 
     @Column
     private String profilBild;
 
+    @NotBlank
     @Column(nullable = false)
     private String password;
+
+    @NotBlank
+    @Transient
+    private String confirmedPassword;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
@@ -42,11 +54,5 @@ public class User {
             joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ID")},
             inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
     private List<Role> roles = new ArrayList<>();
-
-
-    private User(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
 
 }
