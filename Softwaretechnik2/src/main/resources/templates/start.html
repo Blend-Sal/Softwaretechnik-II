@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>Start</title>
 </head>
 <body>
 <h1>Willkommen auf der Startseite des AStA-Shops</h1>
 <button type="button" class="btn btn-primary m-lg-3" th:onclick="|window.location.href='/index'|">QR-Code Generator</button>
-<button type="button" class="btn btn-primary m-lg-3" th:onclick="|window.location.href='/produkterstellung'|">Produkt erstellen</button>
+<button type="button" class="btn btn-primary m-lg-3" sec:authorize="hasRole('EMPLOYEE')" th:onclick="|window.location.href='/produkterstellung'|">Produkt erstellen</button>
 
 
 </body>
