@@ -2,10 +2,27 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
 >
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+    .wider-table td {
+        min-width: 260px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .name-button {
+        min-width: 100px;
+        max-width: 500px;
+        background-color: lightgray !important;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Asta-Shop</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css"
           crossorigin="anonymous"/>
 </head>
 <body>
@@ -15,16 +32,16 @@
 </form>
 <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
                 aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href=""></a>
+            <a class="navbar-brand" href="#"></a>
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/qrcodeinput"
-                       th:onclick="|window.location.href='/product'|">
+                        th:onclick="|window.location.href='/product'|">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-qr-code-scan" viewBox="0 0 16 16">
                             <path d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z"/>
@@ -36,10 +53,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/product">Sortiment</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/produkterstellung">Produkt erstellen</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Meine Reservierun</a>
+                    <a class="nav-link active" aria-current="page" href="#">Meine Reservierung</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Bewertungen</a>
@@ -59,9 +79,25 @@
         </div>
     </div>
 </nav>
-<div class="list-group align-middle" th:each="product : ${products}" th:if="${product != null}">
-    <a href="#" class="list-group-item list-group-item-action w-25 m-lg-3 active"
-       th:text="${product.getProductName()}"></a>
+<div class="col-md-12 col-lg-8">
+    <table class="table table-striped table-responsive wider-table">
+        <thead>
+        <tr>
+            <th>Produktname</th>
+            <th>Preis</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td>
+                <a class="btn name-button" th:href="@{/product/{id}(id=${product.getId()})}" th:text="${product.productName}"></a>
+            </td>
+
+            <td th:text="${product.price}">€</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
+
 </body>
 </html>
