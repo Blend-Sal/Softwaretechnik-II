@@ -7,6 +7,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+
 </head>
 <body>
 <form class="d-flex m-auto w-25 mt-2 mb-2">
@@ -93,7 +98,9 @@
         <button type="submit" id="saveButton" class="btn btn-primary">Speichern</button>
         <button type="button" id="discardButton" class="btn btn-secondary">Verwerfen</button>
         <button type="button" id="editButton" class="btn btn-primary">Bearbeiten</button>
-        <script>
+        <div id="mapid" style="height: 500px;"></div>
+
+        <script th:inline="javascript">
             $(document).ready(function () {
                 $('#shopInfoForm').on('submit', function (e) {
                     alert("Die Eingaben wurden gespeichert")
@@ -183,6 +190,24 @@
 
                         toggleEditMode();
                     });
+                });
+
+                function initMap() {
+                    var myLatLng = {lat: 53.835772966423406, lng: 10.69924225744262};
+
+                    var map = new google.maps.Map(document.getElementById('mapid'), {
+                        zoom: 13,
+                        center: myLatLng
+                    });
+
+                    var marker = new google.maps.Marker({
+                        position: myLatLng,
+                        map: map
+                    });
+                }
+
+                $(document).ready(function () {
+                    initMap();
                 });
             });
         </script>
