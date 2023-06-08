@@ -5,12 +5,9 @@
     <title>Shop-Infos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
 </head>
 <body>
@@ -190,25 +187,31 @@
 
                         toggleEditMode();
                     });
+
+
                 });
-
-                function initMap() {
-                    var myLatLng = {lat: 53.835772966423406, lng: 10.69924225744262};
-
-                    var map = new google.maps.Map(document.getElementById('mapid'), {
-                        zoom: 13,
-                        center: myLatLng
-                    });
-
-                    var marker = new google.maps.Marker({
-                        position: myLatLng,
-                        map: map
-                    });
-                }
 
                 $(document).ready(function () {
-                    initMap();
+                    // ...
+
+                    function initMap() {
+                        var myLatLng = [53.835772966423406, 10.69924225744262];
+
+                        var map = L.map('mapid').setView(myLatLng, 13);
+
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                            maxZoom: 19
+                        }).addTo(map);
+
+                        var marker = L.marker(myLatLng).addTo(map);
+                    }
+
+                    initMap(); // Add this line to call the initMap function
+
                 });
+
+
             });
         </script>
     </form>
