@@ -21,3 +21,11 @@ Issues:
 	LF-150 Mitarbeiter legt neues Produkt an: Luis, Blend
 	Pipeline erstellen: Igor, Leon
 -----------------------------------------------------------------
+Sprint 4:
+Story points geschafft: 68
+Issues:	
+	Detailansicht von Produkt: Blend, Luis
+	Produktliste Kompalibität versichern und Anzeige genauer machen: Igor, Leon
+	LF-90 Kunde erstellt Konto: Kawthar, Ali
+	Einheitliche UI mit Bootstrap: Igor, Leon
+-----------------------------------------------------------------
