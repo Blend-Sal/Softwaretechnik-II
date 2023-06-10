@@ -12,7 +12,6 @@ on:
   push:
     branches:
       - Pipeline-erstellen-SP-13
-      - Kunde-erstellt-ein-Konto-SP---13
 
 jobs:
   build:
