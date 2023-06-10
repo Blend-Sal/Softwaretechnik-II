@@ -65,6 +65,6 @@ public class AuthController {
         } catch (ServletException e) {
             LOGGER.error("Error while login ", e);
         }
-        return "redirect:/start";
+        return "redirect:/login";
     }
 }
