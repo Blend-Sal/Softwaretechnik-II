@@ -1,13 +1,15 @@
 package com.example.softwaretechnik2.controllers;
 
 
-
 import com.example.softwaretechnik2.QRCode.QRCodeGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Objects;
 
 @Controller
 public class QRCodeController extends QRCodeGenerator {
@@ -26,6 +28,7 @@ public class QRCodeController extends QRCodeGenerator {
         } else {
             return generateQRCode(link, model);
         }
-
     }
+
+
 }

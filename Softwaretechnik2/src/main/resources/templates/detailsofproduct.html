@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Product Details</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>.nav-link:hover {
         text-decoration: underline;
     }</style>
@@ -80,10 +81,25 @@
                     <h6 class="mb-4" th:text="${product.isHalal()} ? 'Ja' : 'Nein'"></h6>
                     <h6 class="mb-4" th:text="${product.isVegan()} ? 'Ja' : 'Nein'"></h6>
                     <h6 th:text="${product.isVegetarian()} ? 'Ja' : 'Nein'"></h6>
+                    <div id="qrcode"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+
+        var currentUrl = window.location.href;
+
+        var qrCodeUrl = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent(currentUrl);
+
+        var qrCodeImg = $('<img>').attr('src', qrCodeUrl);
+
+        $('#qrcode').append(qrCodeImg);
+    });
+</script>
+
 </body>
 </html>
