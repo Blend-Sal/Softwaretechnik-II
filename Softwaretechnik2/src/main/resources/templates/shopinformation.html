@@ -127,6 +127,7 @@
     </table>
         <input type="hidden" name="editing" th:value="${editing}" />
         <button th:if="${editing}" type="submit" class="btn btn-success">Speichern</button>
+        <button th:if="${editing}" type="reset" class="btn btn-secondary">Verwerfen</button>
     </form>
     <form id="goToEditForm" method="post" th:action="@{/shopinformation/edit}">
         <input type="hidden" name="editing" th:value="${editing}" />
