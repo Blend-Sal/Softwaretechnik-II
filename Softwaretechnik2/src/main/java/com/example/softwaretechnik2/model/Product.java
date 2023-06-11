@@ -1,6 +1,7 @@
 package com.example.softwaretechnik2.model;
 
 import javax.persistence.*;
+import java.util.Base64;
 import java.util.List;
 @Entity
 @Table(name = "product")
@@ -184,6 +185,10 @@ public class Product {
             this.ingredients = ingredients;
         }
         return true;
+    }
+
+    public String getBase64Image() {
+        return Base64.getEncoder().encodeToString(getImage());
     }
 
     @Override

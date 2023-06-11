@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ee8fa611-d8b2-4a26-94f5-03121df7a135" name="Changes" comment="#45 added allergens default none value">
+      <change beforePath="$PROJECT_DIR$/Softwaretechnik2/target/classes/templates/index.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="localDetailansicht" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2QLEcn2DVOPjCUAtoNcmHyPlXKs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Luis/IdeaProjects/Softwaretechnik-II/Softwaretechnik2/src/main/resources/images&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;fe01ce2a7fbac8fafaed7c982a04e229&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ],
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
+      &quot;MySQL&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Luis\IdeaProjects\Softwaretechnik-II\Softwaretechnik2\src\main\resources\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Luis\IdeaProjects\Softwaretechnik-II\Softwaretechnik2\src\main\resources\static" />
+      <recent name="C:\Users\Luis\IdeaProjects\Softwaretechnik-II\Softwaretechnik2\src\main\resources\images" />
+      <recent name="C:\Users\Luis\IdeaProjects\Softwaretechnik-II\Softwaretechnik2\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Softwaretechnik2Application">
+    <configuration name="ProductTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.softwaretechnik2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.softwaretechnik2" />
+      <option name="MAIN_CLASS_NAME" value="com.example.softwaretechnik2.ProductTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Softwaretechnik2Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.softwaretechnik2.Softwaretechnik2Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.softwaretechnik2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.Softwaretechnik2Application" />
+        <item itemvalue="Spring Boot.Softwaretechnik2Application" />
+        <item itemvalue="JUnit.ProductTest" />
+        <item itemvalue="Spring Boot.Softwaretechnik2Application" />
+        <item itemvalue="JUnit.ProductTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ee8fa611-d8b2-4a26-94f5-03121df7a135" name="Changes" comment="" />
+      <created>1685124546538</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685124546538</updated>
+      <workItem from="1685124547681" duration="648000" />
+      <workItem from="1685452517120" duration="11070000" />
+      <workItem from="1685619798244" duration="11139000" />
+      <workItem from="1685645929839" duration="177000" />
+      <workItem from="1685646654117" duration="260000" />
+      <workItem from="1685706376900" duration="2255000" />
+      <workItem from="1685716721300" duration="761000" />
+      <workItem from="1685721845306" duration="2505000" />
+      <workItem from="1685736761452" duration="1182000" />
+      <workItem from="1685738795278" duration="407000" />
+      <workItem from="1685876284548" duration="4989000" />
+      <workItem from="1685992388862" duration="2063000" />
+      <workItem from="1685994469195" duration="962000" />
+      <workItem from="1686163984404" duration="820000" />
+      <workItem from="1686333537756" duration="6515000" />
+      <workItem from="1686398715891" duration="11818000" />
+      <workItem from="1686495524223" duration="5732000" />
+    </task>
+    <task id="LOCAL-00001" summary="#45 product image can be saved and shown on detailsofproduct.html">
+      <created>1685646061184</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685646061184</updated>
+    </task>
+    <task id="LOCAL-00002" summary="#45 fixed availabilitySavedAsString test">
+      <created>1685646877745</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685646877745</updated>
+    </task>
+    <task id="LOCAL-00003" summary="#45 added home button (doesnt work yet)">
+      <created>1685723414610</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685723414610</updated>
+    </task>
+    <task id="LOCAL-00004" summary="#45 removed unnessecary comment">
+      <created>1685723488800</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685723488800</updated>
+    </task>
+    <task id="LOCAL-00005" summary="#45 BindingResult error print">
+      <created>1685723511119</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685723511119</updated>
+    </task>
+    <task id="LOCAL-00006" summary="#45 commit unversioned files">
+      <created>1685737234741</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685737234742</updated>
+    </task>
+    <task id="LOCAL-00007" summary="#45 changed Availability display names from english to german">
+      <created>1685994098638</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685994098638</updated>
+    </task>
+    <task id="LOCAL-00008" summary="#45 product image is now always 400x400 &amp; changed html layout">
+      <created>1685994209982</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685994209982</updated>
+    </task>
+    <task id="LOCAL-00009" summary="#45 ingredients are now saved as String">
+      <created>1685994260883</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685994260883</updated>
+    </task>
+    <task id="LOCAL-00010" summary="#45 updated tests to changes">
+      <created>1685994297858</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685994297858</updated>
+    </task>
+    <task id="LOCAL-00011" summary="#45 added allergens default none value">
+      <created>1685994338988</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685994338988</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="#45 product image can be saved and shown on detailsofproduct.html" />
+    <MESSAGE value="#45 fixed availabilitySavedAsString test" />
+    <MESSAGE value="#45 added home button (doesnt work yet)" />
+    <MESSAGE value="#45 removed unnessecary comment" />
+    <MESSAGE value="#45 BindingResult error print" />
+    <MESSAGE value="#45 commit unversioned files" />
+    <MESSAGE value="#45 changed Availability display names from english to german" />
+    <MESSAGE value="#45 product image is now always 400x400 &amp; changed html layout" />
+    <MESSAGE value="#45 ingredients are now saved as String" />
+    <MESSAGE value="#45 updated tests to changes" />
+    <MESSAGE value="#45 added allergens default none value" />
+    <option name="LAST_COMMIT_MESSAGE" value="#45 added allergens default none value" />
+  </component>
+</project>

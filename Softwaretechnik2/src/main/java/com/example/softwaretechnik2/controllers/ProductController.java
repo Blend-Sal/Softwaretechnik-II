@@ -20,6 +20,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Base64;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Controller
 //@RequestMapping("/product")
 public class ProductController extends Product {
@@ -31,8 +34,13 @@ public class ProductController extends Product {
     private ServletContext servletContext;
 
     @GetMapping("/product")
-    public String getProd() {
-        return "product";
+    public String getProd(Model model) {
+        List<Product> products = repo.getAllByProductNameIsNotNull();
+        model.addAttribute("products", products);
+
+
+        return "productList";
+
     }
 
     @GetMapping("/produkterstellung")
@@ -44,8 +52,7 @@ public class ProductController extends Product {
     @GetMapping("/product/{id}")
     public String getProduct(@PathVariable Long id, Model model) {
         Product product = repo.findProductById(id);
-        byte[] imageData = product.getImage();
-        String base64Image = Base64.getEncoder().encodeToString(imageData);
+        String base64Image = product.getBase64Image();
         model.addAttribute("Image", base64Image);
         model.addAttribute("product", product);
         return "detailsofproduct";
