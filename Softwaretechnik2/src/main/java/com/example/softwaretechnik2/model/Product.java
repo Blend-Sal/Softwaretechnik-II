@@ -1,8 +1,8 @@
 package com.example.softwaretechnik2.model;
 
 import javax.persistence.*;
+import java.util.Base64;
 import java.util.List;
-
 @Entity
 @Table(name = "product")
 public class Product {
@@ -22,8 +22,8 @@ public class Product {
     private String category;
 
     @Column(name = "Image")
-    private String image;
-
+    @Lob
+    byte[] image;
     @Column(name = "Allergens")
     private String allergens;
 
@@ -45,9 +45,8 @@ public class Product {
     @Column(name = "Price")
     private float price;
 
-    @ElementCollection
     @Column(name = "Ingredients")
-    private List<String> ingredients;
+    private String ingredients;
 
     public boolean isEqualTo(Product anotherProduct) {
         return this.productName.equals(anotherProduct.productName);
@@ -100,11 +99,11 @@ public class Product {
         return true;
     }
 
-    public String getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 
@@ -158,7 +157,7 @@ public class Product {
     }
 
     public void setAvailability(Availability availability) {
-        this.availability = availability.name();
+        this.availability = availability.getDisplayValue();
     }
 
     public float getPrice() {
@@ -174,18 +173,22 @@ public class Product {
         return true;
     }
 
-    public List<String> getIngredients() {
+    public String getIngredients() {
         return ingredients;
     }
 
-    public boolean setIngredients(List<String> ingredients) {
-        String regex = "^[a-zA-ZäöüÄÖÜ,\\s]+$";
-        if (!ingredients.stream().allMatch(ingredient -> ingredient.matches(regex))) {
+    public boolean setIngredients(String ingredients) {
+        String regex = "^([^0-9]*)$";
+        if (!ingredients.matches(regex)) {
             return false;
         } else {
             this.ingredients = ingredients;
         }
         return true;
+    }
+
+    public String getBase64Image() {
+        return Base64.getEncoder().encodeToString(getImage());
     }
 
     @Override
