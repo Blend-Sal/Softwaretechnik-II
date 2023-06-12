@@ -62,7 +62,7 @@
     <h1 class="mb-4" th:text="${product.getProductName()}"></h1>
     <div class="row">
         <img th:src="'data:image/png;base64,' + ${Image}" class="img-fluid" alt="Produkt"
-             style="width: 400px; height: 400px;  "src="">
+             style="width: 400px; height: 400px;  " src="">
         <div class="col-md-6 d-flex flex-column">
             <div class="row mt-auto">
                 <div class="col-5">
@@ -87,12 +87,16 @@
                 </div>
             </div>
         </div>
-        <div class="mt-6" id="qrcode"></div>
+    </div>
+    <div class="qr-wrapper">
+        <label for="qrcode">QR-Code:</label>
+        <div class="mt-6 mb-4" id="qrcode"></div>
     </div>
 </div>
 
+
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
 
         var currentUrl = window.location.href;
 
