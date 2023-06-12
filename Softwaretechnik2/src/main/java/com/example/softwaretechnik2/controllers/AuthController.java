@@ -24,8 +24,6 @@ public class AuthController {
 
     @GetMapping("/login")
     public String login(Model model) {
-        //Optional<Product> product = repo.findById(1L);
-        //model.addAttribute("salamibrötchen",product.get().getProductName());
         return "login";
     }
 
@@ -65,6 +63,6 @@ public class AuthController {
         } catch (ServletException e) {
             LOGGER.error("Error while login ", e);
         }
-        return "redirect:/start";
+        return "redirect:/login";
     }
 }

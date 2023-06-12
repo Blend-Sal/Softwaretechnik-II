@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org"
->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Asta-Shop</title>
-    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -17,28 +16,51 @@
                     <h3 class="text-center">Login:</h3>
                 </div>
                 <div class="card-body">
-                    <form method="post" th:action="@{/login}" class="form-horizontal" role="form">
+                    <form id="loginForm" method="post" th:action="@{/login}" class="form-horizontal" role="form">
                         <div class="mb-3">
                             <label for="username" class="control-label">Benutzername *</label>
-                            <input type="text" id="username" name="username" class="form-control" placeholder="Benutzername..."/>
+                            <input type="text" id="username" name="username" class="form-control"
+                                   placeholder="Benutzername..."/>
                         </div>
 
                         <div class="mb-3">
                             <label for="password" class="control-label">Passwort *</label>
-                            <input type="password" id="password" name="password" class="form-control" placeholder="Passwort..."/>
+                            <input type="password" id="password" name="password" class="form-control"
+                                   placeholder="Passwort..."/>
                         </div>
 
                         <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Einloggen</button>
+                            <button id="loginButton" type="submit" class="btn btn-primary" disabled>Einloggen</button>
                             <span>
-                            <a th:href="@{/register}">registrieren</a>
-                        </span>
+                                <a th:href="@{/register}">registrieren</a>
+                            </span>
                         </div>
+                        <div id="errorMessage" class="alert alert-danger" style="display: none;"></div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $("#username, #password").on("input", validateLoginForm);
+        $("#loginForm").on("submit", handleLoginFormSubmit);
+    });
+
+    function validateLoginForm() {
+        var username = $("#username").val().trim();
+        var password = $("#password").val().trim();
+        var loginButton = $("#loginButton");
+
+        if (username !== "" && password !== "") {
+            loginButton.prop("disabled", false);
+        } else {
+            loginButton.prop("disabled", true);
+        }
+    }
+
+</script>
 </body>
 </html>

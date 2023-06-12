@@ -137,21 +137,19 @@
 <script>
     $(document).ready(function (
         $('#ingredient-input').on('input', function () {
-            const inputField = $(this);
-            const selectedIngredient = inputField.val();
-            const options = $('#inhaltsstoffe option');
+        const inputField = $(this);
+        const selectedIngredient = inputField.val();
+        const options = $('#inhaltsstoffe option');
 
-            options.each(function() {
-                if ($(this).val() === selectedIngredient) {
-                    const currentValue = inputField.data('selected') || '';
-                    const newValue = currentValue ? currentValue + ', ' + selectedIngredient : selectedIngredient;
-                    inputField.data('selected', newValue);
-                    inputField.val(newValue);
-                }
-            });
+        options.each(function () {
+            if ($(this).val() === selectedIngredient) {
+                const currentValue = inputField.data('selected') || '';
+                const newValue = currentValue ? currentValue + ', ' + selectedIngredient : selectedIngredient;
+                inputField.data('selected', newValue);
+                inputField.val(newValue);
+            }
         });
-    });
+    }))
 </script>
 </body>
 </html>
-
