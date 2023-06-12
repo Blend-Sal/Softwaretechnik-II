@@ -1,8 +1,17 @@
 package com.example.softwaretechnik2.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Base64;
 import java.util.List;
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "product")
 public class Product {
@@ -40,7 +49,8 @@ public class Product {
     private boolean kosher;
 
     @Column(name = "Availability")
-    private String availability;
+    @Enumerated(EnumType.STRING)
+    private Availability availability;
 
     @Column(name = "Price")
     private float price;
@@ -150,14 +160,6 @@ public class Product {
 
     public void setKosher(boolean kosher) {
         this.kosher = kosher;
-    }
-
-    public String getAvailability() {
-        return availability;
-    }
-
-    public void setAvailability(Availability availability) {
-        this.availability = availability.getDisplayValue();
     }
 
     public float getPrice() {
