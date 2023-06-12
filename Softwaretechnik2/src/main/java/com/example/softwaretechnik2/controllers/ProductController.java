@@ -4,24 +4,15 @@ import com.example.softwaretechnik2.model.Product;
 import com.example.softwaretechnik2.repositories.ProductRepository;
 import com.example.softwaretechnik2.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
-import java.io.File;
 import java.io.IOException;
-import java.util.Base64;
-
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 //@RequestMapping("/product")
@@ -33,12 +24,10 @@ public class ProductController extends Product {
     @Autowired
     private ServletContext servletContext;
 
-    @GetMapping("/product")
+    @GetMapping("/productList")
     public String getProd(Model model) {
         List<Product> products = repo.getAllByProductNameIsNotNull();
         model.addAttribute("products", products);
-
-
         return "productList";
 
     }
@@ -70,4 +59,7 @@ public class ProductController extends Product {
         repo.save(newProduct);
         return "redirect:product/" + newProduct.getId();
     }
+
+
+
 }
