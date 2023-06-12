@@ -1,5 +1,6 @@
 package com.example.softwaretechnik2;
 
+import com.example.softwaretechnik2.model.Role;
 import com.example.softwaretechnik2.model.ShopInformation;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -119,4 +120,31 @@ public class ShopInformationTest extends ShopInformation {
         assertEquals(nameTest, name.getName());
     }
 
+    @Test
+    void toStringTest() {
+        ShopInformation shopInformation = new ShopInformation();
+        shopInformation.setName("ASTaShop-Lübeck");
+        shopInformation.setStreet("Segebergerstraße 18");
+        shopInformation.setCity("Bad Oldesloe");
+        shopInformation.setBuilding(4);
+        shopInformation.setEmail("blend.salihu@stud.th-luebeck.de");
+        shopInformation.setPhone("+49 174 532 - 1234");
+        shopInformation.setOpenHours("08:00 - 16:00");
+
+        String output = "ShopInformation{" + "name='" + shopInformation.getName() + '\''
+                + ", street='" + shopInformation.getStreet() + '\''
+                + ", city='" + shopInformation.getCity() + '\''
+                + ", building=" + shopInformation.getBuilding()
+                + ", email='" + shopInformation.getEmail() + '\''
+                + ", phone='" + shopInformation.getPhone() + '\''
+                + ", openHours='" + shopInformation.getOpenHours() + '\''
+                + '}';
+
+        assertEquals(shopInformation.toString(), output);
+
+    }
+
+
 }
+
+

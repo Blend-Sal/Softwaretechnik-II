@@ -4,12 +4,13 @@ import com.example.softwaretechnik2.model.Availability;
 import com.example.softwaretechnik2.model.Product;
 import com.example.softwaretechnik2.repositories.ProductRepository;
 import com.example.softwaretechnik2.services.ProductService;
+import com.sun.istack.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.core.parameters.P;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -175,5 +176,102 @@ class ProductTest extends Product {
         assertTrue(productService.checkIfProductExists(p1));
     }
 
+    @Test
+    void getCategoryTest() {
+        Product product = new Product();
+        String test = "Getränk";
+        product.setCategory(test);
+        assertEquals(test, product.getCategory());
+    }
 
+
+    @Test
+    void getIdTest() {
+        Product product = new Product();
+        long id = 1L;
+        product.setId(id);
+        assertEquals(id, product.getId());
+    }
+
+    @Test
+    void getProductNameTest() {
+        Product product = new Product();
+        String name = "Salamibrötchen";
+        product.setProductName(name);
+        assertEquals(name, product.getProductName());
+    }
+
+    @Test
+    void getAllergensTest() {
+        Product product = new Product();
+        String allergens = "Laktose Intolerant";
+        product.setAllergens(allergens);
+        assertEquals(allergens, product.getAllergens());
+    }
+
+    @Test
+    void getIngredientsTest() {
+        Product product = new Product();
+        String ingredient = "Milch";
+        product.setIngredients(ingredient);
+        assertEquals(ingredient, product.getIngredients());
+    }
+
+    @Test
+    void getPriceTest() {
+        Product product = new Product();
+        float price = 2.0f;
+        product.setPrice(price);
+        assertEquals(price, product.getPrice());
+    }
+
+    @Test
+    void setVeganTest() {
+        Product product = new Product();
+        product.setVegan(true);
+        assertTrue(product.isVegan());
+        product.setVegan(false);
+        assertFalse(isVegan());
+    }
+
+    @Test
+    void isEqualToTest()  {
+        Product product = new Product();
+        Product product1 = new Product();
+        Product product2 = new Product();
+        product.setProductName("Salamibrötchen");
+        product1.setProductName("Salamibrötchen");
+        product2.setProductName("Schokobrötchen");
+        assertTrue(product.isEqualTo(product1));
+        assertFalse(product2.isEqualTo(product));
+    }
+
+    @Test
+    void setVegetarian() {
+        Product product = new Product();
+        Product product1 = new Product();
+        product.setVegetarian(true);
+        assertTrue(product.isVegetarian());
+        assertFalse(product1.isVegetarian());
+    }
+
+    @Test
+    void setHalal() {
+        Product product = new Product();
+        Product product1 = new Product();
+        product.setHalal(true);
+        product1.setHalal(false);
+        assertTrue(product.isHalal());
+        assertFalse(product1.isHalal());
+    }
+
+    @Test
+    void isBoughtTest() {
+        Product product = new Product();
+        Product product1 = new Product();
+        product.setBought(true);
+        product1.setBought(false);
+        assertTrue(product.isBought());
+        assertFalse(product1.isBought());
+    }
 }
