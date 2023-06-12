@@ -88,7 +88,8 @@
         <tbody>
         <tr th:each="product: ${products}">
             <td>
-                <span th:if="${product.getAvailability().name() == 'EMPTY'}">
+                <span th:if="${product.getAvailability().name() == 'EMPTY'}"
+                      th:title="${product.getAvailability().getDisplayValue()}">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="16" height="16"
                          fill="red"
@@ -97,7 +98,8 @@
                     <circle cx="8" cy="8" r="8"/>
                     </svg>
                 </span>
-                <span th:if="${product.getAvailability().name() == 'LOW'}">
+                <span th:if="${product.getAvailability().name() == 'LOW'}"
+                      th:title="${product.getAvailability().getDisplayValue()}">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="16" height="16"
                          fill="orange"
@@ -106,7 +108,8 @@
                     <circle cx="8" cy="8" r="8"/>
                     </svg>
                 </span>
-                <span th:if="${product.getAvailability().name() == 'HALF'}">
+                <span th:if="${product.getAvailability().name() == 'HALF'}"
+                      th:title="${product.getAvailability().getDisplayValue()}">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="16" height="16"
                          fill="yellow"
@@ -115,7 +118,8 @@
                     <circle cx="8" cy="8" r="8"/>
                     </svg>
                 </span>
-                <span th:if="${product.getAvailability().name() == 'NEARLY_FULL'}">
+                <span th:if="${product.getAvailability().name() == 'NEARLY_FULL'}"
+                      th:title="${product.getAvailability().getDisplayValue()}">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="16" height="16"
                          fill="green"
@@ -124,7 +128,8 @@
                     <circle cx="8" cy="8" r="8"/>
                     </svg>
                 </span>
-                <span th:if="${product.getAvailability().name() == 'FULL'}">
+                <span th:if="${product.getAvailability().name() == 'FULL'}"
+                      th:title="${product.getAvailability().getDisplayValue()}">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="16" height="16"
                          fill="grey"
