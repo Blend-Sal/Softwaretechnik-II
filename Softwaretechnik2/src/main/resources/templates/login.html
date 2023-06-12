@@ -12,15 +12,18 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <div class="card">
+            <div class="card mt-3">
                 <div class="card-header">
                     <h3 class="text-center">Login:</h3>
                 </div>
                 <div class="card-body">
+                    <div th:if="${loginError}" class="alert alert-danger" role="alert">
+                        <span th:text="${loginError}"></span>
+                    </div>
                     <form method="post" th:action="@{/login}" class="form-horizontal" role="form">
                         <div class="mb-3">
-                            <label for="username" class="control-label">Benutzername *</label>
-                            <input type="text" id="username" name="username" class="form-control" placeholder="Benutzername..."/>
+                            <label for="username" class="control-label">E-Mail Adresse *</label>
+                            <input type="text" id="username" name="username" class="form-control" placeholder="E-Mail Adresse..."/>
                         </div>
 
                         <div class="mb-3">
@@ -31,7 +34,7 @@
                         <div class="mb-3">
                             <button type="submit" class="btn btn-primary">Einloggen</button>
                             <span>
-                            <a th:href="@{/register}">registrieren</a>
+                            <a th:href="@{/register}">Registrieren</a>
                         </span>
                         </div>
                     </form>
