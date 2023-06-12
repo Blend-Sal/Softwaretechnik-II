@@ -4,7 +4,7 @@
 >
 <head>
     <meta charset="UTF-8">
-    <title>Registration</title>
+    <title>Registrierung</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -13,12 +13,12 @@
 <body>
 <div class="container">
     <div class="row col-md-8 offset-md-2">
-        <div class="card">
+        <div class="card mt-3">
             <div th:if="${param.success}">
                 <div class="alert alert-info">Sie haben sich erfolgreich registriert</div>
             </div>
             <div class="card-header">
-                <h2 class="text-center">Registration:</h2>
+                <h2 class="text-center">Registrierung:</h2>
             </div>
             <div class="card-body">
                 <form method="post" role="form" id="registerForm" th:action="@{/register/save}" th:object="${user}"
@@ -60,7 +60,7 @@
                     <img id="frame" src="" class="img-fluid"/>
 
                     <div class="form-group mb-3">
-                        <button class="btn btn-primary" type="submit">registrieren</button>
+                        <button class="btn btn-primary" type="submit">Registrieren</button>
                         <span>Schon registriert? <a href="/" th:href="@{/login}">Login hier</a></span>
                     </div>
                 </form>
@@ -106,6 +106,7 @@
             }
         }
     })
+
 </script>
 </body>
 </html>
