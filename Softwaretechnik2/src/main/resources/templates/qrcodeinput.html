@@ -9,21 +9,10 @@
     }</style>
     <title>QR Code Generator</title>
 </head>
-<div class="container">
-    <div class="d-flex justify-content-between align-items-center mt-2 mb-2">
-        <div></div>
-        <form class="d-flex w-25">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-        <div>
-            <a href="/logout" class="text-secondary">Logout</a>
-        </div>
-    </div>
-</div>
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
                 aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,7 +20,8 @@
             <a class="navbar-brand" href="#"></a>
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/qrcodeinput">
+                    <a class="nav-link active" aria-current="page" href="/qrcodeinput"
+                       th:onclick="|window.location.href='/product'|">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-qr-code-scan" viewBox="0 0 16 16">
                             <path d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z"/>
@@ -49,27 +39,18 @@
                     <a class="nav-link active" aria-current="page" href="/produkterstellung">Produkt erstellen</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Meine Reservierung</a>
+                    <a class="nav-link active" aria-current="page" href="">Meine Reservierung</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Bewertungen</a>
+                    <a class="nav-link active" aria-current="page" href="">Bewertungen</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/shopinformation">Shop-Infos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/start">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                             class="bi bi-house" viewBox="0 0 16 16">
-                            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
-                        </svg>
-                    </a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6 text-center">

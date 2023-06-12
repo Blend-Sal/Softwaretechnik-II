@@ -16,13 +16,13 @@ public class QRCodeControllerTest {
     private Model model;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         qrCodeController = new QRCodeController();
         model = new BindingAwareModelMap();
     }
 
     @Test
-    public void testQRCodevalidlink() {
+    void testQRCodevalidlink() {
         String validLink = "https://youtube.com/";
         String result = qrCodeController.getQRCode(validLink, model);
         assertEquals("qrCode", result);
@@ -30,7 +30,7 @@ public class QRCodeControllerTest {
     }
 
     @Test
-    public void testQRCodeinvalidLink() {
+    void testQRCodeinvalidLink() {
         String invalidLink = "InvalidLink";
         String result = qrCodeController.getQRCode(invalidLink, model);
         assertEquals("error2", result);
@@ -38,7 +38,7 @@ public class QRCodeControllerTest {
     }
 
     @Test
-    public void testQRCodeemptyLink() {
+    void testQRCodeemptyLink() {
         String emptyLink = "";
         String result = qrCodeController.getQRCode(emptyLink, model);
         assertEquals("error2", result);

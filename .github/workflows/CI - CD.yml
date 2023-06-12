@@ -12,7 +12,8 @@ on:
   push:
     branches:
       - Pipeline-erstellen-SP-13
-      - Detailansicht-von-Produkt-SP--21
+      - main
+      - Usability-Test-vorbereiten-SP-13
 
 jobs:
   build:

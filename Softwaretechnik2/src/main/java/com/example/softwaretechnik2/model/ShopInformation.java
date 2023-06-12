@@ -1,6 +1,9 @@
 package com.example.softwaretechnik2.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "shopinfo")
@@ -32,56 +35,97 @@ public class ShopInformation {
         return street;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public boolean setStreet(String street) {
+        String regex = "\\d+";
+        if (street.matches(regex)) {
+            return false;
+        } else {
+            this.street = street;
+        }
+        return true;
     }
 
     public String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public boolean setCity(String city) {
+        String regex = "\\d+";
+        if (city.matches(regex)) {
+            return false;
+        } else {
+            this.city = city;
+        }
+        return true;
     }
 
     public int getBuilding() {
         return building;
     }
 
-    public void setBuilding(int building) {
-        this.building = building;
+    public boolean setBuilding(int building) {
+        if (String.valueOf(building).matches("\\d+")) {
+            this.building = building;
+        } else {
+            return false;
+        }
+        return true;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public boolean setEmail(String email) {
+        String regex = "\\d+";
+        if (email.matches(regex)) {
+            return false;
+        } else {
+            this.email = email;
+        }
+        return true;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public boolean setPhone(String phone) {
+        String regex = "\\d+";
+        if (phone.matches(regex)) {
+            this.phone = phone;
+        } else {
+            return false;
+        }
+        return true;
     }
 
     public String getOpenHours() {
         return openHours;
     }
 
-    public void setOpenHours(String openHours) {
-        this.openHours = openHours;
+    public boolean setOpenHours(String openHours) {
+        String regex = "\\d+";
+        if (openHours.matches(regex)) {
+            return false;
+        } else {
+            this.openHours = openHours;
+        }
+        return true;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public boolean setName(String name) {
+        String regex = "\\d+";
+        if (name.matches(regex)) {
+            return false;
+        } else {
+            this.name = name;
+        }
+        return true;
     }
 
     @Override

@@ -29,17 +29,14 @@ public class SpringSecurity {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/register/**").permitAll()
-                .antMatchers("/shopinformation/edit").hasRole("EMPLOYEE")
                 .antMatchers("/produkterstellung").hasRole("EMPLOYEE")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin(form -> form.loginPage("/login")
                         .loginProcessingUrl("/login")
                         .defaultSuccessUrl("/start", true)
-                        .failureUrl("/login-error")
                         .permitAll())
                 .logout(logout -> logout.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                        .logoutSuccessUrl("/login")
                         .permitAll());
         return http.build();
     }
