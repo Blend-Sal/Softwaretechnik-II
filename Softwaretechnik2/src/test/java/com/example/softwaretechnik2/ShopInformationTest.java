@@ -9,17 +9,16 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 public class ShopInformationTest extends ShopInformation {
 
-    private ShopInformation name;
 
     @Test
-    public void setStreet() {
+    void setStreet() {
         ShopInformation street = new ShopInformation();
         String streetTest = "Schanzenbarg 29";
         assertTrue(street.setStreet(streetTest));
     }
 
     @Test
-    public void setCity() {
+    void setCity() {
         ShopInformation city = new ShopInformation();
         String cityTest = "Bad Oldesloe";
         assertTrue(city.setCity(cityTest));
@@ -27,35 +26,35 @@ public class ShopInformationTest extends ShopInformation {
     }
 
     @Test
-    public void setBuilding() {
+    void setBuilding() {
         ShopInformation building = new ShopInformation();
         int buildingnum = 25;
         assertTrue(building.setBuilding(buildingnum));
     }
 
     @Test
-    public void setEmail() {
+    void setEmail() {
         ShopInformation email = new ShopInformation();
         String emailTest = "test@gmail.com";
         assertTrue(email.setEmail(emailTest));
     }
 
     @Test
-    public void setPhone() {
+    void setPhone() {
         ShopInformation mobile = new ShopInformation();
         String mobileTest = "04531 801688";
         assertFalse(mobile.setPhone(mobileTest));
     }
 
     @Test
-    public void setOpenhours() {
+    void setOpenhours() {
         ShopInformation openHours = new ShopInformation();
         String openHoursTest = "07:00 - 12:00";
         assertTrue(openHours.setOpenHours(openHoursTest));
     }
 
     @Test
-    public void setName() {
+    void setName() {
         ShopInformation name = new ShopInformation();
         String nameTest = "Lukas";
         assertTrue(name.setName(nameTest)
@@ -65,7 +64,7 @@ public class ShopInformationTest extends ShopInformation {
     }
 
     @Test
-    public void getStreetTest() {
+    void getStreetTest() {
         ShopInformation street = new ShopInformation();
         String streetTest = "Schanzenbarg 12";
         street.setStreet(streetTest);
@@ -73,7 +72,7 @@ public class ShopInformationTest extends ShopInformation {
     }
 
     @Test
-    public void getCityTest() {
+    void getCityTest() {
         ShopInformation city = new ShopInformation();
         String cityTest = "Bad Oldesloe";
         city.setCity(cityTest);
@@ -81,7 +80,7 @@ public class ShopInformationTest extends ShopInformation {
     }
 
     @Test
-    public void getBuildingTest() {
+    void getBuildingTest() {
         ShopInformation building = new ShopInformation();
         int buildingTest = 10;
         building.setBuilding(buildingTest);
@@ -89,7 +88,7 @@ public class ShopInformationTest extends ShopInformation {
     }
 
     @Test
-    public void getEmailTest() {
+    void getEmailTest() {
         ShopInformation email = new ShopInformation();
         String emailTest = "test@gmail.com";
         email.setEmail(emailTest);
@@ -97,7 +96,7 @@ public class ShopInformationTest extends ShopInformation {
     }
 
     @Test
-    public void getPhoneTest() {
+    void getPhoneTest() {
         ShopInformation phone = new ShopInformation();
         String phoneTest = "+49 451 300 - 5116";
         phone.setPhone(phoneTest);
@@ -105,7 +104,7 @@ public class ShopInformationTest extends ShopInformation {
     }
 
     @Test
-    public void getOpenHoursTest() {
+    void getOpenHoursTest() {
         ShopInformation openHours = new ShopInformation();
         String openHoursTest = "10:00 - 20:00";
         openHours.setOpenHours(openHoursTest);
@@ -113,7 +112,7 @@ public class ShopInformationTest extends ShopInformation {
     }
 
     @Test
-    public void getNameTest() {
+    void getNameTest() {
         ShopInformation name = new ShopInformation();
         String nameTest = "Igor";
         name.setName(nameTest);
