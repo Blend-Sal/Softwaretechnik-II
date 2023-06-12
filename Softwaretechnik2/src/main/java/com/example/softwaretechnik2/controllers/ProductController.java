@@ -24,6 +24,7 @@ public class ProductController extends Product {
     @Autowired
     private ServletContext servletContext;
 
+
     @GetMapping("/productList")
     public String getProd(Model model) {
         List<Product> products = repo.getAllByProductNameIsNotNull();
