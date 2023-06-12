@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Startseite</title>
@@ -37,7 +37,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/produkterstellung">Produkt erstellen</a>
+                    <a class="nav-link active" aria-current="page" href="/produkterstellung"
+                       sec:authorize="hasRole('EMPLOYEE')">Produkt erstellen</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Meine Reservierung</a>
