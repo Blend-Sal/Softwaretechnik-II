@@ -1,2 +1,2 @@
 # Softwaretechnik-II
-This is the Main Repository for the Softwaretechnik Project here the Feature Branches will be merged into this Branch.
+This is the dev branch, here interim updates are pushed
