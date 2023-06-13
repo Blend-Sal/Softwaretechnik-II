@@ -2,7 +2,6 @@ package com.example.softwaretechnik2.model;
 
 import javax.persistence.*;
 import java.util.Base64;
-import java.util.List;
 @Entity
 @Table(name = "product")
 public class Product {

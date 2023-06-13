@@ -1,6 +1,5 @@
 package com.example.softwaretechnik2;
 
-import com.example.softwaretechnik2.model.Role;
 import com.example.softwaretechnik2.model.ShopInformation;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -43,13 +43,12 @@ class ProductControllerTest {
 
     @Test
     void testPost() throws Exception {
-        // Arrange
+
         Product newProduct = new Product();
         newProduct.setId(1L);
-        MockMultipartFile image = file; // Create a mock MultipartFile with test data
+        MockMultipartFile image = file;
         when(productService.checkIfProductExists(newProduct)).thenReturn(false);
 
-        // Act & Assert
         mockMvc.perform(multipart("/produkterstellung")
                         .file("image", image.getBytes())
                         .flashAttr("product", newProduct))
