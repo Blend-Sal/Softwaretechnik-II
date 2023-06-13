@@ -1,2 +1,2 @@
 # Softwaretechnik-II
-This is the Main Repository for the Softwaretechnik Project here the Feature Branches will be merged into this Branch.
+This is a feature branch, here split tasks are processed and tested and at the end of a sprint they are adapted to the current task based on the title
