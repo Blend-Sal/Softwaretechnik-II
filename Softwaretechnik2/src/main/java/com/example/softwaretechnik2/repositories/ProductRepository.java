@@ -18,6 +18,10 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     public Product findProductByProductName(String productName);
 
+    List<Product> searchByProductNameContainingIgnoreCase(String productName);
+
     @Transactional
     public void deleteProductByProductName(String s);
+
+
 }

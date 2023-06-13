@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletContext;
 import java.io.IOException;
@@ -31,6 +32,14 @@ public class ProductController extends Product {
         model.addAttribute("products", products);
         return "productList";
 
+    }
+
+    @GetMapping("/search")
+    public ModelAndView search(@RequestParam("query") String query) {
+        List<Product> products = productService.searchProductByName(query);
+        ModelAndView modelAndView = new ModelAndView("productList");
+        modelAndView.addObject("products", products);
+        return modelAndView;
     }
 
     @GetMapping("/produkterstellung")
