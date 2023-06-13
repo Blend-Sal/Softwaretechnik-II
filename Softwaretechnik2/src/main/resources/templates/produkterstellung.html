@@ -133,6 +133,9 @@
                 <option>Kaffee</option>
                 <option>Wasser</option>
                 <option>Kakao</option>
+                <option>Gurke</option>
+                <option>Tomate</option>
+                <option>Salat</option>
             </datalist>
         </div>
         <details>
@@ -152,7 +155,7 @@
         const selectedIngredient = inputField.val();
         const options = $('#inhaltsstoffe option');
 
-        options.each(function() {
+        options.each(function () {
             if ($(this).val() === selectedIngredient) {
                 const currentValue = inputField.data('selected') || '';
                 const newValue = currentValue ? currentValue + ', ' + selectedIngredient : selectedIngredient;

@@ -13,11 +13,13 @@
         max-width: 500px;
         margin: 0 auto;
     }
+
     .name-button {
         min-width: 100px;
         max-width: 500px;
         background-color: lightgray !important;
     }
+
     .nav-link:hover {
         text-decoration: underline !important;
     }
@@ -59,7 +61,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/produkterstellung">Produkt erstellen</a>
+                    <a th:classappend="${#authorization.expression('hasRole(''ROLE_CLIENT'')')} ? 'disabled-link'"
+                       class="nav-link active restricted-link" aria-current="page" href="/produkterstellung">Produkt
+                        erstellen</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/productList">Sortiment</a>
@@ -96,7 +100,8 @@
         <tbody>
         <tr th:each="product: ${products}">
             <td>
-                <a class="btn name-button" th:href="@{/product/{id}(id=${product.getId()})}" th:text="${product.productName}"></a>
+                <a class="btn name-button" th:href="@{/product/{id}(id=${product.getId()})}"
+                   th:text="${product.productName}"></a>
             </td>
 
             <td th:text="${product.price}">€</td>
@@ -104,6 +109,27 @@
         </tbody>
     </table>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const restrictedLinks = document.querySelectorAll('.restricted-link.disabled-link');
+        restrictedLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                alert('You do not have the required permissions to access this feature.');
+            });
+        });
+    });
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const restrictedLinks = document.querySelectorAll('.restricted-link.disabled-link');
+        restrictedLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                alert('Sie besitzen nicht die erforderlichen Rechte');
+            });
+        });
+    });
+
+</script>
 </body>
 </html>

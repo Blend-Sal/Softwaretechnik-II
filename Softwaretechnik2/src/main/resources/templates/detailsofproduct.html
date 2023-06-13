@@ -40,10 +40,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/productList">Sortiment</a>
+                    <a th:classappend="${#authorization.expression('hasRole(''ROLE_CLIENT'')')} ? 'disabled-link'"
+                       class="nav-link active restricted-link" aria-current="page" href="/produkterstellung">Produkt
+                        erstellen</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/produkterstellung">Produkt erstellen</a>
+                    <a class="nav-link active" aria-current="page" href="/productList">Sortiment</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Meine Reservierung</a>
@@ -114,6 +116,17 @@
 
         $('#qrcode').append(qrCodeImg);
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const restrictedLinks = document.querySelectorAll('.restricted-link.disabled-link');
+        restrictedLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                alert('Sie besitzen nicht die erforderlichen Rechte');
+            });
+        });
+    });
+
 </script>
 
 </body>

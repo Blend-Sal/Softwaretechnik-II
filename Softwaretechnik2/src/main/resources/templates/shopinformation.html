@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -44,7 +44,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/produkterstellung">Produkt erstellen</a>
+                    <a th:classappend="${#authorization.expression('hasRole(''ROLE_CLIENT'')')} ? 'disabled-link'"
+                       class="nav-link active restricted-link" aria-current="page" href="/produkterstellung">Produkt
+                        erstellen</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/productList">Sortiment</a>
@@ -85,7 +87,8 @@
                 <td>
                     <span th:text="${ShopInformation.getStreet()}" th:unless="${editing}"></span>
                     <label>
-                        <input type="text" class="form-control" th:value="${ShopInformation.getStreet()}" th:if="${editing}" name="street">
+                        <input type="text" class="form-control" th:value="${ShopInformation.getStreet()}"
+                               th:if="${editing}" name="street">
                     </label>
                 </td>
             </tr>
@@ -94,7 +97,8 @@
                 <td>
                     <span th:text="${ShopInformation.getCity()}" th:unless="${editing}"></span>
                     <label>
-                        <input type="text" class="form-control" th:value="${ShopInformation.getCity()}" th:if="${editing}" name="city">
+                        <input type="text" class="form-control" th:value="${ShopInformation.getCity()}"
+                               th:if="${editing}" name="city">
                     </label>
                 </td>
             </tr>
@@ -103,7 +107,8 @@
                 <td>
                     <span th:text="${ShopInformation.getBuilding()}" th:unless="${editing}"></span>
                     <label>
-                        <input type="number" class="form-control" th:value="${ShopInformation.getBuilding()}" th:if="${editing}" name="building">
+                        <input type="number" class="form-control" th:value="${ShopInformation.getBuilding()}"
+                               th:if="${editing}" name="building">
                     </label>
                 </td>
             </tr>
@@ -112,7 +117,8 @@
                 <td>
                     <span th:text="${ShopInformation.getEmail()}" th:unless="${editing}"></span>
                     <label>
-                        <input type="email" class="form-control" th:value="${ShopInformation.getEmail()}" th:if="${editing}" name="email">
+                        <input type="email" class="form-control" th:value="${ShopInformation.getEmail()}"
+                               th:if="${editing}" name="email">
                     </label>
                 </td>
             </tr>
@@ -121,7 +127,8 @@
                 <td>
                     <span th:text="${ShopInformation.getPhone()}" th:unless="${editing}"></span>
                     <label>
-                        <input type="text" class="form-control" th:value="${ShopInformation.getPhone()}" th:if="${editing}" name="phone">
+                        <input type="text" class="form-control" th:value="${ShopInformation.getPhone()}"
+                               th:if="${editing}" name="phone">
                     </label>
                 </td>
             </tr>
@@ -130,19 +137,24 @@
                 <td>
                     <span th:text="${ShopInformation.getOpenHours()}" th:unless="${editing}"></span>
                     <label>
-                        <input type="text" class="form-control" th:value="${ShopInformation.getOpenHours()}" th:if="${editing}" name="openHours">
+                        <input type="text" class="form-control" th:value="${ShopInformation.getOpenHours()}"
+                               th:if="${editing}" name="openHours">
                     </label>
                 </td>
             </tr>
         </table>
-        <input type="hidden" name="editing" th:value="${editing}" />
+        <input type="hidden" name="editing" th:value="${editing}"/>
         <button th:if="${editing}" type="submit" class="btn btn-success">Speichern</button>
         <button th:if="${editing}" type="reset" class="btn btn-secondary">Verwerfen</button>
     </form>
     <form id="goToEditForm" method="post" th:action="@{/shopinformation/edit}">
-        <input type="hidden" name="editing" th:value="${editing}" />
-        <button th:unless="${editing}" type="submit" class="btn btn-primary">Bearbeiten</button>
+        <input type="hidden" name="editing" th:value="${editing}"/>
+        <button th:unless="${editing}"
+                th:disabled="${#authorization.expression('hasRole(''ROLE_CLIENT'')')}"
+                type="submit" class="btn btn-primary">Bearbeiten
+        </button>
     </form>
+
     <div class="mb-4 mt-4" id="mapid" style="height: 500px; width: 800px;"></div>
 
     <script th:inline="javascript">
@@ -164,6 +176,17 @@
             initMap();
 
         });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const restrictedLinks = document.querySelectorAll('.restricted-link.disabled-link');
+            restrictedLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    alert('Sie besitzen nicht die erforderlichen Rechte');
+                });
+            });
+        });
+
     </script>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
