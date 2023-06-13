@@ -284,4 +284,5 @@ class ProductTest extends Product {
         String expectedBase64Image = "iVBORw0KGgo=";
         assertEquals(expectedBase64Image, myClass.getBase64Image());
     }
+
 }
