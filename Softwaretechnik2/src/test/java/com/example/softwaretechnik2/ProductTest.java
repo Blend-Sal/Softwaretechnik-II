@@ -274,4 +274,14 @@ class ProductTest extends Product {
         assertTrue(product.isBought());
         assertFalse(product1.isBought());
     }
+
+    @Test
+    void base64ImageTest() {
+        byte[] imageBytes = new byte[]{(byte) 0x89, (byte) 0x50, (byte) 0x4E, (byte) 0x47,
+                (byte) 0x0D, (byte) 0x0A, (byte) 0x1A, (byte) 0x0A};
+        Product myClass = new Product();
+        myClass.setImage(imageBytes);
+        String expectedBase64Image = "iVBORw0KGgo=";
+        assertEquals(expectedBase64Image, myClass.getBase64Image());
+    }
 }
