@@ -15,8 +15,9 @@ import java.io.IOException;
 import java.util.List;
 
 @Controller
-//@RequestMapping("/product")
 public class ProductController extends Product {
+
+    // Autowired dependencies for product-related operations
     @Autowired
     ProductRepository repo;
     @Autowired
@@ -24,21 +25,22 @@ public class ProductController extends Product {
     @Autowired
     private ServletContext servletContext;
 
-
+    // GET mapping for the list of products
     @GetMapping("/productList")
     public String getProd(Model model) {
         List<Product> products = repo.getAllByProductNameIsNotNull();
         model.addAttribute("products", products);
         return "productList";
-
     }
 
+    // GET mapping for the product creation form
     @GetMapping("/produkterstellung")
     public String get(Model model) {
         model.addAttribute("product", new Product());
         return "produkterstellung";
     }
 
+    // GET mapping for a specific product's details
     @GetMapping("/product/{id}")
     public String getProduct(@PathVariable Long id, Model model) {
         Product product = repo.findProductById(id);
@@ -48,19 +50,21 @@ public class ProductController extends Product {
         return "detailsofproduct";
     }
 
-    //optimal image resolution is about 400x400 -> implement resize?
+    // POST mapping for saving the new product
     @PostMapping("/produkterstellung")
-    public String post(@ModelAttribute Product newProduct, BindingResult result, @RequestParam("image") MultipartFile image) throws IOException {
-        System.out.println("here");
+    public String post(@ModelAttribute Product newProduct, BindingResult result,
+                       @RequestParam("image") MultipartFile image) throws IOException {
+        // Check if the product already exists
         if (productService.checkIfProductExists(newProduct)) {
             return "errorDuplicateProduct";
         }
+
+        // Save the image and product
         byte[] imageBytes = image.getBytes();
         newProduct.setImage(imageBytes);
         repo.save(newProduct);
+
+        // Redirect to the product's details page
         return "redirect:product/" + newProduct.getId();
     }
-
-
-
 }
