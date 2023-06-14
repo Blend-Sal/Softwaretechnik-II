@@ -104,7 +104,7 @@
                    th:text="${product.productName}"></a>
             </td>
 
-            <td th:text="${product.price}">€</td>
+            <td th:text="${product.getPriceAsString() + '€'}">€</td>
         </tr>
         </tbody>
     </table>

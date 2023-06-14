@@ -162,6 +162,9 @@ public class Product {
     public float getPrice() {
         return price;
     }
+    public String getPriceAsString() {
+        return String.format("%.2f", getPrice());
+    }
 
     public boolean setPrice(float price) {
         if (id != null && String.valueOf(id).matches("\\d+")) {
@@ -204,7 +207,7 @@ public class Product {
                 ", halal=" + halal +
                 ", kosher=" + kosher +
                 ", availability=" + availability +
-                ", price=" + price +
+                ", price=" + getPriceAsString() +
                 ", ingredients=" + ingredients +
                 '}';
     }
