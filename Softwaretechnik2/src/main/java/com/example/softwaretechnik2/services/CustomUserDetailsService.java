@@ -20,26 +20,33 @@ import java.util.stream.Collectors;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
+    // Autowired UserRepository for database access
     @Autowired
     private UserRepository userRepository;
 
+    // Load user details by email address
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email);
 
+        // If the user is found, create a UserDetails object with the user's information
         if (user != null) {
             return new org.springframework.security.core.userdetails.User(user.getEmail(),
                     user.getPassword(),
                     mapRolesToAuthorities(user.getRoles()));
-        }else{
+        } else {
+            // If the user is not found, throw a UsernameNotFoundException
             throw new UsernameNotFoundException("Invalid username or password.");
         }
     }
 
-    private Collection < ? extends GrantedAuthority> mapRolesToAuthorities(Collection <Role> roles) {
+    // Helper method to map roles to granted authorities
+    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
         return roles.stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName()))
                 .collect(Collectors.toList());
     }
 }
+
+
 

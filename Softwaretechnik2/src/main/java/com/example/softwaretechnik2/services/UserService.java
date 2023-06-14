@@ -15,14 +15,19 @@ import java.util.List;
 @Service
 public class UserService {
 
+    // Autowired UserRepository for accessing user data
     @Autowired
     private UserRepository userRepository;
+
+    // Autowired RoleRepository for accessing role data
     @Autowired
     private RoleRepository roleRepository;
+
+    // Autowired PasswordEncoder for encoding user passwords
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
+    // Save a user to the repository after encoding the password and setting the appropriate role
     public void saveUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         Role role = checkRole(user);
@@ -30,19 +35,20 @@ public class UserService {
         userRepository.save(user);
     }
 
-
+    // Find a user by their email address
     public User findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
-
+    // Find all users in the repository
     public List<User> findAllUsers() {
         return userRepository.findAll();
     }
 
+    // Check the user's role based on their email address and save the role to the repository
     private Role checkRole(User user) {
         Role role = new Role();
-        if(user.getEmail().contains("@asta-shop")){
+        if (user.getEmail().contains("@asta-shop")) {
             role.setName("ROLE_EMPLOYEE");
         } else {
             role.setName("ROLE_CLIENT");
@@ -50,3 +56,5 @@ public class UserService {
         return roleRepository.save(role);
     }
 }
+
+
