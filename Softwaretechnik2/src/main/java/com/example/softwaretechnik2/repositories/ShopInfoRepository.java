@@ -8,8 +8,12 @@ import javax.transaction.Transactional;
 
 @Repository
 public interface ShopInfoRepository extends CrudRepository<ShopInformation, String> {
+
+    // Find shop information by its name
     public ShopInformation findShopInformationByName(String name);
 
+    // Delete shop information by its name
     @Transactional
     public void deleteShopInformationByName(String name);
 }
+
