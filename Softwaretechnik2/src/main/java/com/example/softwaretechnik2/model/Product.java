@@ -2,10 +2,13 @@ package com.example.softwaretechnik2.model;
 
 import javax.persistence.*;
 import java.util.Base64;
+
+// The Product class represents a product in the system
 @Entity
 @Table(name = "product")
 public class Product {
 
+    // Fields with annotations for mapping to the database
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Product_ID")
@@ -23,6 +26,7 @@ public class Product {
     @Column(name = "Image")
     @Lob
     byte[] image;
+
     @Column(name = "Allergens")
     private String allergens;
 
@@ -47,10 +51,12 @@ public class Product {
     @Column(name = "Ingredients")
     private String ingredients;
 
+    // Method to check if this product is equal to another product
     public boolean isEqualTo(Product anotherProduct) {
         return this.productName.equals(anotherProduct.productName);
     }
 
+    // Getter and setter methods for all fields
     public String getCategory() {
         return category;
     }
@@ -162,6 +168,7 @@ public class Product {
     public float getPrice() {
         return price;
     }
+
     public String getPriceAsString() {
         return String.format("%.2f", getPrice());
     }
@@ -189,10 +196,12 @@ public class Product {
         return true;
     }
 
+    // Method to get the image as a Base64 encoded string
     public String getBase64Image() {
         return Base64.getEncoder().encodeToString(getImage());
     }
 
+    // toString method for the Product class
     @Override
     public String toString() {
         return "Product{" +
@@ -201,6 +210,7 @@ public class Product {
                 ", isBought=" + isBought +
                 ", category='" + category + '\'' +
                 ", image='" + image + '\'' +
+
                 ", allergens='" + allergens + '\'' +
                 ", vegan=" + vegan +
                 ", vegetarian=" + vegetarian +

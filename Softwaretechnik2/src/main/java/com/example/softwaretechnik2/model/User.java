@@ -12,6 +12,7 @@ import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
+// The User class represents a user in the system
 @Setter
 @Getter
 @AllArgsConstructor
@@ -20,6 +21,7 @@ import java.util.List;
 @Table(name = "users")
 public class User {
 
+    // Fields with annotations for mapping to the database
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false, unique = true)
@@ -33,21 +35,26 @@ public class User {
     @Size(min=2, max=20)
     private String lastName;
 
+    // Email field with validation constraints
     @Column(nullable = false, unique = true, length  = 55)
     @Email(message="email ist ungültig")
     private String email;
 
+    // Profile picture field
     @Column
     private String profilBild;
 
+    // Password field with validation constraints
     @NotBlank
     @Column(nullable = false)
     private String password;
 
+    // Confirmed password field, not stored in the database
     @NotBlank
     @Transient
     private String confirmedPassword;
 
+    // Many-to-many relationship with the Role entity
     @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinTable(
             name="users_roles",

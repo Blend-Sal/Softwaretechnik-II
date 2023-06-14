@@ -5,10 +5,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+// Define the class as an entity and map it to the "shopinfo" table in the database
 @Entity
 @Table(name = "shopinfo")
 public class ShopInformation {
 
+    // Fields for various shop information
     @Id
     @Column(name = "Name", length = 191)
     private String name = "AStA-Shop";
@@ -31,10 +33,13 @@ public class ShopInformation {
     @Column(name = "OpenHours")
     private String openHours = "Mo-Fr ab 7:00 Uhr. Solange, bis alles alle ist.";
 
+    // Getter and setter methods for the fields
+
     public String getStreet() {
         return street;
     }
 
+    // Set the street field if it doesn't match the regex (only digits)
     public boolean setStreet(String street) {
         String regex = "\\d+";
         if (street.matches(regex)) {
@@ -49,6 +54,7 @@ public class ShopInformation {
         return city;
     }
 
+    // Set the city field if it doesn't match the regex (only digits)
     public boolean setCity(String city) {
         String regex = "\\d+";
         if (city.matches(regex)) {
@@ -63,6 +69,7 @@ public class ShopInformation {
         return building;
     }
 
+    // Set the building field if it matches the regex (only digits)
     public boolean setBuilding(int building) {
         if (String.valueOf(building).matches("\\d+")) {
             this.building = building;
@@ -76,6 +83,7 @@ public class ShopInformation {
         return email;
     }
 
+    // Set the email field if it doesn't match the regex (only digits)
     public boolean setEmail(String email) {
         String regex = "\\d+";
         if (email.matches(regex)) {
@@ -90,6 +98,7 @@ public class ShopInformation {
         return phone;
     }
 
+    // Set the phone field if it matches the regex (only digits)
     public boolean setPhone(String phone) {
         String regex = "\\d+";
         if (phone.matches(regex)) {
@@ -104,6 +113,7 @@ public class ShopInformation {
         return openHours;
     }
 
+    // Set the openHours field if it doesn't match the regex (only digits)
     public boolean setOpenHours(String openHours) {
         String regex = "\\d+";
         if (openHours.matches(regex)) {
@@ -118,6 +128,7 @@ public class ShopInformation {
         return name;
     }
 
+    // Set the name field if it doesn't match the regex (only digits)
     public boolean setName(String name) {
         String regex = "\\d+";
         if (name.matches(regex)) {
@@ -128,6 +139,7 @@ public class ShopInformation {
         return true;
     }
 
+    // Override the toString method to return a formatted string of the object
     @Override
     public String toString() {
         return "ShopInformation{" +
