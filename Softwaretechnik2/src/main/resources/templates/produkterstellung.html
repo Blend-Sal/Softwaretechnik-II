@@ -154,13 +154,16 @@
 
 <script>
     $(document).ready(function () {
+        // Listen for input changes in the 'ingredient-input' field
         $('#ingredient-input').on('input', function () {
             const inputField = $(this);
             const selectedIngredient = inputField.val();
             const options = $('#inhaltsstoffe option');
-
+            // Iterate through each option in the 'inhaltsstoffe' dropdown
             options.each(function () {
+                // Check if the current option value matches the selected ingredient
                 if ($(this).val() === selectedIngredient) {
+                    // Update the input field with the new selected ingredient
                     const currentValue = inputField.data('selected') || '';
                     const newValue = currentValue ? currentValue + ', ' + selectedIngredient : selectedIngredient;
                     inputField.data('selected', newValue);

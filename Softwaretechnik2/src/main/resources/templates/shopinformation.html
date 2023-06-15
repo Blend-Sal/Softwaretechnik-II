@@ -159,24 +159,25 @@
 
     <script th:inline="javascript">
         $(document).ready(function () {
+            // Initialize the map
             function initMap() {
                 var myLatLng = [53.836795068873265, 10.698111853522072];
 
                 var map = L.map('mapid').setView(myLatLng, 13);
-
+                // Add a tile layer to the map
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
                     maxZoom: 19,
                     zoom: 17
                 }).addTo(map);
-
+                // Add a marker to the map
                 var marker = L.marker(myLatLng).addTo(map);
             }
-
+            // Call the initMap function to set up the map
             initMap();
 
         });
-
+        // Disable restricted links and show an alert if clicked
         document.addEventListener('DOMContentLoaded', function () {
             const restrictedLinks = document.querySelectorAll('.restricted-link.disabled-link');
             restrictedLinks.forEach(link => {
