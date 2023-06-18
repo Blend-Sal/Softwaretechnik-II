@@ -3,18 +3,19 @@
 <head>
     <title>Produkterstellung</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>.nav-link:hover {
         text-decoration: underline;
     }</style>
 </head>
 <body>
-<div class="container">
-    <div class="d-flex justify-content-between align-items-center mt-2 mb-2">
-        <div></div>
-        <div>
-            <a href="/logout" class="text-secondary">Logout</a>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-end mt-3 mr-8 mb-3">
+            <a href="/logout">
+                <button type="button" class="btn btn-outline-dark">Logout</button>
+            </a>
         </div>
     </div>
 </div>
@@ -70,23 +71,23 @@
     <h1>Neues Produkt anlegen</h1>
 
     <form method="post" th:action="@{/produkterstellung}" enctype="multipart/form-data">
-        <div class="form-group">
-            <label for="produktName">Name des Produktes*:</label>
+        <div class="mb-3">
+            <label for="produktName" class="form-label">Name des Produktes*:</label>
             <input type="text" id="produktName" name="productName" required class="form-control">
         </div>
 
-        <div class="form-group">
-            <label for="bild">Bild*:</label>
-            <input type="file" id="bild" name="image" accept="image/*" required class="form-control-file">
+        <div class="mb-3">
+            <label for="bild" class="form-label">Bild*:</label>
+            <input type="file" id="bild" name="image" accept="image/*" required class="form-control">
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
             <label for="preis">Preis*:</label>
             <input type="number" step="0.01" min="0.0" id="preis" name="price" required class="form-control">
             <span>€</span>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
             <label for="verfügbarkeit">Verfügbarkeit:</label>
             <select name="availability" id="verfügbarkeit" class="form-control">
                 <option th:each="availabilityOpt : ${T(com.example.softwaretechnik2.model.Availability).values()}"
@@ -112,13 +113,13 @@
             </label>
         </div>
 
-        <div class="form-group form-check">
+        <div class="form-group form-check mb-3">
             <label for="vegan" class="form-check-label">
                 <input type="checkbox" id="vegan" name="vegan" class="form-check-input"> Vegan?
             </label>
         </div>
 
-        <div class="form-group">
+        <div class="form-group mb-3">
             <label for="allergene">Moegliche Allergene:</label>
             <textarea id="allergene" name="allergens" class="form-control">Keine</textarea>
         </div>
