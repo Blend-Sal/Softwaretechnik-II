@@ -1,5 +1,6 @@
 package com.example.softwaretechnik2.controllers;
 
+import com.example.softwaretechnik2.model.Availability;
 import com.example.softwaretechnik2.model.Product;
 import com.example.softwaretechnik2.repositories.ProductRepository;
 import com.example.softwaretechnik2.services.ProductService;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.ServletContext;
 import java.io.IOException;
@@ -40,6 +42,7 @@ public class ProductController extends Product {
         return "produkterstellung";
     }
 
+    // TODO Die implementierung von Shopinformation hier übernehmen
     // GET mapping for a specific product's details
     @GetMapping("/product/{id}")
     public String getProduct(@PathVariable Long id, Model model) {
@@ -47,6 +50,13 @@ public class ProductController extends Product {
         String base64Image = product.getBase64Image();
         model.addAttribute("Image", base64Image);
         model.addAttribute("product", product);
+        // Add the existing shop information or a new one to the model
+        model = model.addAttribute("DetailsOfProduct", product);
+
+        // Add the "editing" attribute to the model if it's not present
+        if (!model.containsAttribute("editing")) {
+            model.addAttribute("editing", false);
+        }
         return "detailsofproduct";
     }
 
@@ -67,4 +77,32 @@ public class ProductController extends Product {
         // Redirect to the product's details page
         return "redirect:product/" + newProduct.getId();
     }
+
+    @PostMapping("/detailsofproduct/{id}/edit")
+    public String editDetailsofproductInformation(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("editing", true);
+        return "redirect:/product/" + id;
+    }
+
+
+    @PostMapping("/detailsofproduct/{id}")
+    public String saveEditedProduct(@PathVariable Long id, @ModelAttribute Product editedProduct, BindingResult result,
+                                    @RequestParam(value = "image", required = false) MultipartFile image, RedirectAttributes redirectAttributes) throws IOException {
+        // Check if the image is not null before saving it
+        if (image != null && !image.isEmpty()) {
+            byte[] imageBytes = image.getBytes();
+            editedProduct.setImage(imageBytes);
+        } else {
+            // If the image is null, keep the previous image
+            Product existingProduct = repo.findProductById(id);
+            editedProduct.setImage(existingProduct.getImage());
+        }
+
+        // Save the edited product
+        repo.save(editedProduct);
+
+        // Redirect to the product's details page
+        return "redirect:/product/" + editedProduct.getId();
+    }
+
 }

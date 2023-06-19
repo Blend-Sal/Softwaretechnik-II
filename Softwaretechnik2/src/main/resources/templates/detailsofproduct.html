@@ -70,39 +70,112 @@
 </nav>
 <div class="container">
     <h1 class="mb-4" th:text="${product.getProductName()}"></h1>
-    <div class="row">
-        <img th:src="'data:image/png;base64,' + ${Image}" class="img-fluid" alt="Produkt"
-             style="width: 400px; height: 400px;  " src="">
-        <div class="col-md-6 d-flex flex-column">
-            <div class="row mt-auto">
-                <div class="col-5">
-                    <h6 class="mb-4">Preis:</h6>
-                    <h6 class="mb-4">Verfügbarkeit:</h6>
-                    <h6 class="mb-4">Zutaten:</h6>
-                    <h6 class="mb-4">Allergene:</h6>
-                    <h6 class="mb-4">Kosher:</h6>
-                    <h6 class="mb-4">Halal:</h6>
-                    <h6 class="mb-4">Vegan:</h6>
-                    <h6>Vegetarisch:</h6>
-                </div>
-                <div class="col-6">
-                    <h6 class="mb-4" th:text="${product.getPriceAsString()} + '€'"></h6>
-                    <h6 class="mb-4" th:text="${product.getAvailability()}"></h6>
-                    <h6 class="mb-4" th:text="${product.getIngredients()}"></h6>
-                    <h6 class="mb-4" th:text="${product.getAllergens()}"></h6>
-                    <h6 class="mb-4" th:text="${product.isKosher()} ? 'Ja' : 'Nein'"></h6>
-                    <h6 class="mb-4" th:text="${product.isHalal()} ? 'Ja' : 'Nein'"></h6>
-                    <h6 class="mb-4" th:text="${product.isVegan()} ? 'Ja' : 'Nein'"></h6>
-                    <h6 th:text="${product.isVegetarian()} ? 'Ja' : 'Nein'"></h6>
-                </div>
+    <form id="productForm" method="post" th:action="@{/detailsofproduct/{id}(id=${product.getId()})}">
+        <div class="row">
+            <img th:src="'data:image/png;base64,' + ${Image}" class="img-fluid" alt="Produkt"
+                 style="width: 400px; height: 400px;" src="">
+            <div class="col-md-6 d-flex flex-column">
+                <table class="table">
+                    <tr>
+                        <th>Preis:</th>
+                        <td>
+                            <span th:text="${product.getPriceAsString()} + '€'" th:unless="${editing}"></span>
+                            <label>
+                                <input type="text" class="form-control" th:value="${product.getPriceAsString()}"
+                                       th:if="${editing}" name="priceAsString" th:readonly="${editing}">
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Verfügbarkeit:</th>
+                        <td>
+                            <span th:text="${product.getAvailability()}" th:unless="${editing}"></span>
+                            <label>
+                                <input type="text" class="form-control" th:value="${product.getAvailability()}"
+                                       th:if="${editing}" name="availability" th:readonly="${editing}">
+                            </label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th>Zutaten:</th>
+                        <td>
+                            <span th:text="${product.getIngredients()}" th:unless="${editing}"></span>
+                            <label>
+                                <input type="text" class="form-control" th:value="${product.getIngredients()}"
+                                       th:if="${editing}" name="ingredients">
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Allergene:</th>
+                        <td>
+                            <span th:text="${product.getAllergens()}" th:unless="${editing}"></span>
+                            <label>
+                                <input type="text" class="form-control" th:value="${product.getAllergens()}"
+                                       th:if="${editing}" name="allergens">
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Kosher:</th>
+                        <td>
+                            <span th:text="${product.isKosher()} ? 'Ja' : 'Nein'" th:unless="${editing}"></span>
+                            <label>
+                                <input type="checkbox" class="form-check-input" th:checked="${product.isKosher()}"
+                                       th:if="${editing}" name="kosher">
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Halal:</th>
+                        <td>
+                            <span th:text="${product.isHalal()} ? 'Ja' : 'Nein'" th:unless="${editing}"></span>
+                            <label>
+                                <input type="checkbox" class="form-check-input" th:checked="${product.isHalal()}"
+                                       th:if="${editing}" name="halal">
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Vegan:</th>
+                        <td>
+                            <span th:text="${product.isVegan()} ? 'Ja' : 'Nein'" th:unless="${editing}"></span>
+                            <label>
+                                <input type="checkbox" class="form-check-input" th:checked="${product.isVegan()}"
+                                       th:if="${editing}" name="vegan">
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Vegetarisch:</th>
+                        <td>
+                            <span th:text="${product.isVegetarian()} ? 'Ja' : 'Nein'" th:unless="${editing}"></span>
+                            <label>
+                                <input type="checkbox" class="form-check-input" th:checked="${product.isVegetarian()}"
+                                       th:if="${editing}" name="vegetarian">
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+                <input type="hidden" name="editing" th:value="${editing}"/>
+                <button th:if="${editing}" type="submit" class="btn btn-success">Speichern</button>
+                <button th:if="${editing}" type="reset" class="btn btn-secondary">Verwerfen</button>
             </div>
         </div>
-    </div>
-    <div class="qr-wrapper">
-        <label for="qrcode">QR-Code:</label>
-        <div class="mt-6 mb-4" id="qrcode"></div>
-        <button type="button" id="printButton" class="btn btn-primary">QR-Code Drucken</button>
-    </div>
+    </form>
+    <form id="goToEditForm" method="post" th:action="@{/detailsofproduct/{id}/edit(id=${product.getId()})}">
+        <input type="hidden" name="editing" th:value="${editing}"/>
+        <button th:unless="${editing}"
+                th:disabled="${#authorization.expression('hasRole(''ROLE_CLIENT'')')}"
+                type="submit" class="btn btn-primary">Bearbeiten
+        </button>
+        <div class="qr-wrapper">
+            <label for="qrcode">QR-Code:</label>
+            <div class="mt-6 mb-4" id="qrcode"></div>
+            <button type="button" id="printButton" class="btn btn-primary">QR-Code Drucken</button>
+        </div>
+    </form>
 </div>
 
 
