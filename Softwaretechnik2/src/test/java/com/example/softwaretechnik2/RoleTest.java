@@ -4,14 +4,16 @@ import com.example.softwaretechnik2.model.Role;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.springframework.test.util.AssertionErrors.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @SpringBootTest
 public class RoleTest {
 
     @Test
     void roleTest() {
+        // Test if the Role's name can be set and retrieved correctly
         Role role = new Role();
         String name = "Lukas";
         role.setName(name);
@@ -20,6 +22,7 @@ public class RoleTest {
 
     @Test
     void idTest() {
+        // Test if the Role's ID can be set and retrieved correctly
         Role role = new Role();
         long id = 2;
         role.setId(id);
@@ -28,10 +31,13 @@ public class RoleTest {
 
     @Test
     void nameLengthTest() {
+        // Test if the Role's name length is within the specified limit (55 characters)
         Role role = new Role();
         String name = "Ein sehr langer Rollenname, der maximal 55 Zeichen lang sein sollte";
-        assertFalse("Die Namenslänge sollte kleiner oder gleich 55 sein", name.length() <= 55);
+        assertFalse(name.length() <= 55, "Die Namenslänge sollte kleiner oder gleich 55 sein");
         role.setName(name);
         assertEquals(name, role.getName());
     }
 }
+
+
