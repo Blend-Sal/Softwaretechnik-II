@@ -36,14 +36,14 @@ class ProductTest extends Product {
         Product kaffee2go = new Product();
         kaffee2go.setCategory("Getränk");
 
-        Product salamibrötchen = new Product();
-        salamibrötchen.setCategory("Belegtes Brötchen");
+        Product salamibroetchen = new Product();
+        salamibroetchen.setCategory("Belegtes Brötchen");
 
         // Save test data to the repository
         repo.save(banane);
         repo.save(kakao);
         repo.save(kaffee2go);
-        repo.save(salamibrötchen);
+        repo.save(salamibroetchen);
     }
 
     // Test cases
@@ -53,16 +53,16 @@ class ProductTest extends Product {
         // Test saving a product
         Product product = new Product();
         Product savedProduct = repo.save(product);
-        assertTrue(product.equals(savedProduct));
+        assertEquals(product, savedProduct);
         repo.delete(product);
     }
 
     @Test
     void testFindProductsByCategory() {
         // Test finding products by category
-        List<Product> getränke = repo.findProductsByCategory("Getränk");
-        Stream<Product> getränkeStream = getränke.stream();
-        assertTrue(getränkeStream.allMatch(x -> x.getCategory().equals("Getränk")));
+        List<Product> getraenke = repo.findProductsByCategory("Getränk");
+        Stream<Product> getraenkeStream = getraenke.stream();
+        assertTrue(getraenkeStream.allMatch(x -> x.getCategory().equals("Getränk")));
     }
 
     @Test
