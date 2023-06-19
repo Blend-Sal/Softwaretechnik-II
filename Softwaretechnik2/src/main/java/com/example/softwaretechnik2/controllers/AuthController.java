@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.constraints.NotNull;
 
 import static org.hibernate.tool.schema.SchemaToolingLogging.LOGGER;
 
@@ -53,6 +54,8 @@ public class AuthController {
     }
 
     // POST mapping for saving the registration data
+
+    @NotNull
     @PostMapping("/register/save")
     public String registration(@ModelAttribute("user") User user,
                                BindingResult result, HttpServletRequest request,

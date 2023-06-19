@@ -17,6 +17,8 @@ import java.util.List;
 @Table(name="roles")
 public class Role {
 
+
+
     // Fields with annotations for mapping to the database
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
