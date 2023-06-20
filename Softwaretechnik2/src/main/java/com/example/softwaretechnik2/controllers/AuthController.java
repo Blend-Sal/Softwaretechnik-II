@@ -10,9 +10,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Optional;
 
 import static org.hibernate.bytecode.enhance.spi.interceptor.BytecodeInterceptorLogging.LOGGER;
 
@@ -48,7 +48,7 @@ public class AuthController {
         String email = user.getEmail();
         String password = user.getPassword();
         String confirmedPassword = user.getConfirmedPassword();
-        User existing = userService.findByEmail(email);
+        Optional<User> existing = userService.findByEmail(email);
         if (existing != null) {
             result.rejectValue("email", null, "bereits registriert!");
         }
