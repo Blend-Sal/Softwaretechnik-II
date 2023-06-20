@@ -1,13 +1,14 @@
 package com.example.softwaretechnik2.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Represents a role entity in the system.
+ * Each role has a name and may be associated with multiple users.
+ * This class is annotated as an entity, so it is mapped to a table in the database.
+ */
 @Setter
 @Getter
 @NoArgsConstructor
@@ -20,7 +21,7 @@ public class Role
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length  = 55)
+    @Column(unique = true, length  = 55)
     private String name;
 
     @ManyToMany(mappedBy="roles")
