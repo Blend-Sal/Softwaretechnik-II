@@ -10,9 +10,135 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <style>.nav-link:hover {
         text-decoration: underline;
-    }</style>
+    }
+
+    header {
+        background-color: #F4BEBE; /* Hintergrundfarbe */
+        padding: 20px; /* Innenabstand */
+        text-align: center;
+        color: #571010;
+    }
+
+    .banner {
+        width: 100%;
+        height: 85.3vh;
+        background-image: url("https://www.eatclub.tv/wp-content/uploads/sites/4/2022/08/vegane-croissants.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+    }
+
+    .rectangle1 {
+        position: absolute;
+        width: 100%;
+        height: 250px;
+        bottom: 0;
+        background-color: #F4BEBE;
+        border-radius: 0 0 0 0; /* Grad der Abrundung pro Ecke*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff; /*Textfarbe */
+        font-size: 28px; /* Textgröße */
+    }
+
+
+    .circle1 {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        bottom: 100px;
+        left: 1025px;
+        background-color: #2c0b0b;
+        border-radius: 30% 30% 30% 30%; /* Grad der Abrundung pro Ecke*/
+        /*border: 2px solid #571010;*/
+        opacity: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff; /*Textfarbe */
+        font-size: 28px; /* Textgröße */
+        box-shadow: 0 50px 20px rgba(0, 0, 0, 0.5); /* Schatten */
+    }
+
+    a.circle1:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt*/
+        transition: box-shadow 0.3s ease-in-out; /* Übergangsanimation */
+    }
+
+    .circle2 {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        bottom: 100px;
+        left: 300px;
+        background-color: #2c0b0b;
+        border-radius: 30% 30% 30% 30%; /* Grad der Abrundung pro Ecke*/
+        /*border: 2px solid #000000;*/
+        opacity: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff; /*Textfarbe */
+        font-size: 28px; /* Textgröße */
+        box-shadow: 0 50px 20px rgba(0, 0, 0, 0.5); /* Schatten */
+    }
+
+    a.circle2:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt*/
+        transition: box-shadow 0.3s ease-in-out; /* Übergangsanimation */
+    }
+
+    .circle3 {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        bottom: 100px;
+        right: 300px;
+        background-color: #2c0b0b;
+        border-radius: 30% 30% 30% 30%; /* Grad der Abrundung pro Ecke*/
+        /*border: 2px solid #571010;*/
+        opacity: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff; /*Textfarbe */
+        font-size: 28px; /* Textgröße */
+        box-shadow: 0 50px 20px rgba(0, 0, 0, 0.5); /* Schatten */
+    }
+
+    a.circle3:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt*/
+        transition: box-shadow 0.3s ease-in-out; /* Übergangsanimation */
+    }
+
+    a.circle1,
+    a.circle2,
+    a.circle3 {
+        text-decoration: none; /* Entfernt das Unterstreichen von allen Elementen innerhalb der Links */
+    }
+
+    h2, h3, h4 {
+        font-size: 34px;
+        text-align: start;
+        margin-top: -300px;
+        margin-left: 100px;
+        font-style: italic;
+        text-decoration: underline;
+    }
+
+    p {
+        text-align: center;
+        margin-right: 120px;
+        font-style: italic;
+        text-decoration: none;
+    }
+
+    </style>
 </head>
 <body>
+<div class="rectangle1"></div>
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mt-2 mb-2">
         <div></div>
@@ -72,13 +198,33 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-        const restrictedLinks = document.querySelectorAll('.restricted-link.disabled-link');
-        restrictedLinks.forEach(link => {
-            link.addEventListener('click', function (event) {
-                event.preventDefault();
-                alert('Sie besitzen nicht die erforderlichen Rechte');
+            const restrictedLinks = document.querySelectorAll('.restricted-link.disabled-link');
+            restrictedLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    alert('Sie besitzen nicht die erforderlichen Rechte');
+                });
             });
         });
-    });
     </script>
 </nav>
+<header>
+    <h1>Willkommen in unserem Asta-Shop</h1>
+</header>
+<div class="banner">
+    <a href="/productList" class="circle1">
+        <h2>Lunch</h2>
+        <p>...oder einen deftigen Burger zu Mittag...</p>
+    </a>
+    <a href="/productList" class="circle2">
+        <h3>Snack</h3>
+        <p>Ob Obst für zwischendurch oder ein Sandwich nach der Vorlesung...</p>
+    </a>
+    <a href="/productList" class="circle3">
+        <h4>Brunch</h4>
+        <p>...oder einen süßen Crossaint für den Start in den Tag</p>
+    </a>
+</div>
+
+
+
