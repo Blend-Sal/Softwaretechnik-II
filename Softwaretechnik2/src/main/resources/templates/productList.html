@@ -118,22 +118,30 @@
 
 <script type="text/javascript">
 
+    // Function to fetch search suggestions based on the input query
     function updateSuggestions(query) {
-        fetch(`/search-suggestions?query=${query}`)
+        // Make a request to the '/search-suggestions' endpoint with the input query
+        fetch(`/search-suggestions?query=${query}`) // Parse the response as JSON
             .then(response => response.json())
             .then(products => {
+                // Get the 'suggestions' element from the DOM
                 const suggestions = document.getElementById('suggestions');
+                // Clear the existing suggestions
                 suggestions.innerHTML = '';
 
+                // Iterate through the list of products and create an 'option' element for each product
                 products.forEach(product => {
                     const option = document.createElement('option');
+                    // Set the 'value' attribute of the 'option' element of the product's name
                     option.value = product.productName;
+                    // Append the 'option' element to the 'suggestions' element
                     suggestions.appendChild(option);
                 });
             });
     }
-
+    // Add an 'input' event listener to the 'search-input' element
     document.getElementById('search-input').addEventListener('input', (event) => {
+        // Call the 'updateSuggestions' function with the input value as the query
         updateSuggestions(event.target.value);
     });
 

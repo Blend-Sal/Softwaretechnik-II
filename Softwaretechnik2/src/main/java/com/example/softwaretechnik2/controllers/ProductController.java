@@ -35,18 +35,23 @@ public class ProductController extends Product {
         return "productList";
 
     }
-
+// Search endpoint to filter products based on the input query
     @GetMapping("/search")
     public ModelAndView search(@RequestParam("query") String query) {
+        // Search for products by name using the input query and add them to a new ModelAndView object
         List<Product> products = productService.searchProductByName(query);
         ModelAndView modelAndView = new ModelAndView("productList");
         modelAndView.addObject("products", products);
+        // Return the ModelAndView object to render the 'productList' view
         return modelAndView;
     }
 
+    // Search suggestions endpoint to provide autocomplete suggestions based on the input query
+    // Basically the 'search' function but instead of returning a modelAndView Object it returns a JSON response.
     @GetMapping("/search-suggestions")
     public ResponseEntity<List<Product>> searchSuggestions(@RequestParam("query") String query) {
         List<Product> products = productService.searchProductByName(query);
+        // Return the list of matched products as a JSON response
         return ResponseEntity.ok(products);
     }
 
