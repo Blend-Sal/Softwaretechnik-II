@@ -52,6 +52,11 @@ public class Product {
         return this.productName.equals(anotherProduct.productName);
     }
 
+    public boolean equals(Object o) {
+
+        return o instanceof Product && this.isEqualTo((Product) o);
+    }
+
     public String getCategory() {
         return category;
     }

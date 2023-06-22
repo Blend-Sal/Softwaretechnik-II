@@ -4,17 +4,20 @@ import com.example.softwaretechnik2.model.Availability;
 import com.example.softwaretechnik2.model.Product;
 import com.example.softwaretechnik2.repositories.ProductRepository;
 import com.example.softwaretechnik2.services.ProductService;
-import com.sun.istack.NotNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.core.parameters.P;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 class ProductTest extends Product {
@@ -274,4 +277,32 @@ class ProductTest extends Product {
         assertTrue(product.isBought());
         assertFalse(product1.isBought());
     }
+
+    @Test
+    public void searchProductByNameTest() {
+        // creating Test data
+        Product mB = new Product();
+        mB.setProductName("MilchBrötchen");
+        Product sB = new Product();
+        sB.setProductName("SalamiBrötchen");
+        Product mW = new Product();
+        mW.setProductName("Mineralwasser");
+        Product mm = new Product();
+        mm.setProductName("Müllermilch 500ml");
+        // saving Test data in Repository
+        repo.save(mB);
+        repo.save(sB);
+        repo.save(mW);
+        repo.save(mm);
+
+        //putting data into Arrays
+        Object[] queryArray = repo.searchByProductNameContainingIgnoreCase("brötchen").toArray();
+        Product[] rollArray = {mB, sB};
+        Product[] fullArray = {mB, sB, mW, mm};
+
+        assertArrayEquals(queryArray, rollArray);
+        assertFalse(Arrays.equals(queryArray, fullArray));
+
+    }
+
 }

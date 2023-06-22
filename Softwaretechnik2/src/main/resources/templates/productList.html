@@ -5,19 +5,23 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+
+
 <style>
     .wider-table td {
         min-width: 260px;
         max-width: 500px;
         margin: 0 auto;
     }
+
     .name-button {
         min-width: 100px;
         max-width: 500px;
         background-color: lightgray !important;
     }
+
     .nav-link:hover {
         text-decoration: underline !important;
     }
@@ -86,7 +90,9 @@
     </div>
 </nav>
 <form class="d-flex m-auto w-25 mt-2 mb-2" th:action="@{/search}" method="get">
-    <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search">
+    <input id="search-input" class="form-control me-2" type="search" name="query" placeholder="Search" list="suggestions"
+           aria-label="Search">
+    <datalist id="suggestions"></datalist>
     <button class="btn btn-outline-success" type="submit">Search</button>
 </form>
 <div class="col-md-12 col-lg-8">
@@ -100,7 +106,8 @@
         <tbody>
         <tr th:each="product: ${products}">
             <td>
-                <a class="btn name-button" th:href="@{/product/{id}(id=${product.getId()})}" th:text="${product.productName}"></a>
+                <a class="btn name-button" th:href="@{/product/{id}(id=${product.getId()})}"
+                   th:text="${product.productName}"></a>
             </td>
 
             <td th:text="${product.price}">€</td>
@@ -108,6 +115,29 @@
         </tbody>
     </table>
 </div>
+
+<script type="text/javascript">
+
+    function updateSuggestions(query) {
+        fetch(`/search-suggestions?query=${query}`)
+            .then(response => response.json())
+            .then(products => {
+                const suggestions = document.getElementById('suggestions');
+                suggestions.innerHTML = '';
+
+                products.forEach(product => {
+                    const option = document.createElement('option');
+                    option.value = product.productName;
+                    suggestions.appendChild(option);
+                });
+            });
+    }
+
+    document.getElementById('search-input').addEventListener('input', (event) => {
+        updateSuggestions(event.target.value);
+    });
+
+</script>
 
 </body>
 </html>

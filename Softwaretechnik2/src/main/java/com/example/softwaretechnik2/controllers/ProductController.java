@@ -4,6 +4,7 @@ import com.example.softwaretechnik2.model.Product;
 import com.example.softwaretechnik2.repositories.ProductRepository;
 import com.example.softwaretechnik2.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,6 +28,7 @@ public class ProductController extends Product {
 
 
     @GetMapping("/productList")
+
     public String getProd(Model model) {
         List<Product> products = repo.getAllByProductNameIsNotNull();
         model.addAttribute("products", products);
@@ -40,6 +42,12 @@ public class ProductController extends Product {
         ModelAndView modelAndView = new ModelAndView("productList");
         modelAndView.addObject("products", products);
         return modelAndView;
+    }
+
+    @GetMapping("/search-suggestions")
+    public ResponseEntity<List<Product>> searchSuggestions(@RequestParam("query") String query) {
+        List<Product> products = productService.searchProductByName(query);
+        return ResponseEntity.ok(products);
     }
 
     @GetMapping("/produkterstellung")

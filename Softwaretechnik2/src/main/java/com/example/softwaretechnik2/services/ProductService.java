@@ -28,5 +28,8 @@ public class ProductService {
     public List<Product> searchProductByName(String name) {
         return repo.searchByProductNameContainingIgnoreCase(name);
     }
+    public List<String> getAllProductNames() {
+        return null;
+    }
 
 }
