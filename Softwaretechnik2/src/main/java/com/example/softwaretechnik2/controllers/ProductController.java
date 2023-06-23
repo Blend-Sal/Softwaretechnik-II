@@ -4,6 +4,7 @@ import com.example.softwaretechnik2.model.Availability;
 import com.example.softwaretechnik2.model.Product;
 import com.example.softwaretechnik2.repositories.ProductRepository;
 import com.example.softwaretechnik2.services.ProductService;
+import com.sun.istack.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -86,20 +87,14 @@ public class ProductController extends Product {
 
 
     @PostMapping("/detailsofproduct/{id}")
-    public String saveEditedProduct(@PathVariable Long id, @ModelAttribute Product editedProduct, BindingResult result,
-                                    @RequestParam(value = "image", required = false) MultipartFile image, RedirectAttributes redirectAttributes) throws IOException {
-        // Check if the image is not null before saving it
-        if (image != null && !image.isEmpty()) {
-            byte[] imageBytes = image.getBytes();
-            editedProduct.setImage(imageBytes);
-        } else {
-            // If the image is null, keep the previous image
-            Product existingProduct = repo.findProductById(id);
-            editedProduct.setImage(existingProduct.getImage());
-        }
+    public String saveEditedProduct(@PathVariable Long id, @ModelAttribute Product editedProduct, BindingResult result, RedirectAttributes redirectAttributes) throws IOException {
+        System.out.println("newproduct:" + editedProduct);
+        Product existingProduct = repo.findProductById(id);
+        existingProduct = productService.updateProductDetails(existingProduct, editedProduct);
 
         // Save the edited product
-        repo.save(editedProduct);
+        System.out.println("tobeinserted:" + existingProduct);
+        repo.save(existingProduct);
 
         // Redirect to the product's details page
         return "redirect:/product/" + editedProduct.getId();
