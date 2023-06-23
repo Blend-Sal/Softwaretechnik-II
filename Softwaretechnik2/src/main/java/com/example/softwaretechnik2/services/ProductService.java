@@ -4,7 +4,7 @@ import com.example.softwaretechnik2.model.Product;
 import com.example.softwaretechnik2.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import com.example.softwaretechnik2.model.Availability;
 @Service
 public class ProductService {
     // Autowired ProductRepository for database access
@@ -25,6 +25,19 @@ public class ProductService {
             }
         }
         return false;
+    }
+
+    //update an existing product
+    public Product updateProductDetails(Product oldProduct, Product newProduct) {
+        oldProduct.setPrice(newProduct.getPrice());
+        oldProduct.setIngredients(newProduct.getIngredients());
+        oldProduct.setAllergens(newProduct.getAllergens());
+        oldProduct.setKosher(newProduct.isKosher());
+        oldProduct.setHalal(newProduct.isHalal());
+        oldProduct.setVegan(newProduct.isVegan());
+        oldProduct.setVegetarian(newProduct.isVegetarian());
+        oldProduct.setAvailability(newProduct.getAvailability());
+        return oldProduct;
     }
 }
 
