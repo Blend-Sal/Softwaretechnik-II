@@ -4,6 +4,11 @@ import com.example.softwaretechnik2.model.User;
 import com.example.softwaretechnik2.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,9 +16,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.persistence.Lob;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotNull;
+
+import java.io.File;
+import java.io.IOException;
 
 import static org.hibernate.tool.schema.SchemaToolingLogging.LOGGER;
 
@@ -54,7 +63,6 @@ public class AuthController {
     }
 
     // POST mapping for saving the registration data
-
     @NotNull
     @PostMapping("/register/save")
     public String registration(@ModelAttribute("user") User user,
@@ -91,5 +99,14 @@ public class AuthController {
 
         // Redirect to the login page
         return "redirect:/login";
+    }
+
+    // url for accessing the asta-shop logo
+    @GetMapping("/logo")
+    public ResponseEntity<Resource> getImage() throws IOException {
+        Resource imageResource = new ClassPathResource("static/AStA-Logo.jpg");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.IMAGE_JPEG);
+        return ResponseEntity.ok().headers(headers).body(imageResource);
     }
 }
