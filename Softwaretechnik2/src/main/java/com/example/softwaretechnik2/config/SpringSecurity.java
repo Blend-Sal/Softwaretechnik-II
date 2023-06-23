@@ -30,6 +30,7 @@ public class SpringSecurity {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/logo").permitAll() // AStA-Logo image accessable for login page
                 .antMatchers("/register/**").permitAll() // Allow access to registration without authentication
                 .antMatchers("/shopinformation/edit").hasRole("EMPLOYEE") // Restrict access to edit shop information to employees only
                 .antMatchers("/produkterstellung").hasRole("EMPLOYEE") // Restrict access to product creation to employees only
