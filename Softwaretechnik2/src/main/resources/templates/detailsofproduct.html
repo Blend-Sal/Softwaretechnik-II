@@ -82,18 +82,23 @@
                         <td>
                             <span th:text="${product.getPriceAsString()} + '€'" th:unless="${editing}"></span>
                             <label>
-                                <input type="text" class="form-control" th:value="${product.getPriceAsString()}"
-                                       th:if="${editing}" name="priceAsString" th:readonly="${editing}">
+                                <input type="number" step="0.01" min="0.0" class="form-control"
+                                       th:if="${editing}" name="price" th:value="${product.getPrice()}">
                             </label>
                         </td>
                     </tr>
                     <tr>
                         <th>Verfügbarkeit:</th>
                         <td>
-                            <span th:text="${product.getAvailability()}" th:unless="${editing}"></span>
+                            <span th:text="${product.getAvailability().getDisplayValue()}" th:unless="${editing}"></span>
                             <label>
-                                <input type="text" class="form-control" th:value="${product.getAvailability()}"
-                                       th:if="${editing}" name="availability" th:readonly="${editing}">
+                                <select name="availability" id="verfügbarkeit" class="form-control" th:if="${editing}">
+                                    <option th:each="availabilityOpt : ${T(com.example.softwaretechnik2.model.Availability).values()}"
+                                            th:value="${availabilityOpt}"
+                                            th:text="${availabilityOpt.displayValue}"
+                                            th:selected="${availabilityOpt == product.getAvailability()}"></option>
+                                    ></option>
+                                </select>
                             </label>
                         </td>
                     </tr>
@@ -211,9 +216,6 @@
             });
         });
     });
-
-
 </script>
-
 </body>
 </html>
