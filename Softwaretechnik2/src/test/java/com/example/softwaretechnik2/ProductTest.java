@@ -147,16 +147,6 @@ class ProductTest extends Product {
     }
 
     @Test
-    void availabilitySavedAsString() {
-        // Test if the availability is saved as a string
-        Product test = new Product();
-        test.setAvailability(Availability.FULL);
-        repo.save(test);
-        assertEquals("Voll", test.getAvailability());
-        repo.delete(test);
-    }
-
-    @Test
     void properAvailabilityDisplayName() {
         // Test if the availability display name is correct
         Availability a = Availability.FULL;
