@@ -4,10 +4,13 @@ import com.example.softwaretechnik2.model.Availability;
 import com.example.softwaretechnik2.model.Product;
 import com.example.softwaretechnik2.repositories.ProductRepository;
 import com.example.softwaretechnik2.services.ProductService;
+import org.hibernate.event.spi.PreDeleteEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.jaxb.SpringDataJaxb;
+import org.springframework.security.core.parameters.P;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -291,7 +294,32 @@ class ProductTest extends Product {
         myClass.setImage(imageBytes);
         String expectedBase64Image = "iVBORw0KGgo=";
         assertEquals(expectedBase64Image, myClass.getBase64Image());
+    }
 
+    @Test
+    void updateProductTest() {
+        Product existingProduct = new Product();
+        existingProduct.setPrice(1);
+        existingProduct.setIngredients("Mehl");
+        existingProduct.setAllergens("Keine");
+        existingProduct.setKosher(true);
+        existingProduct.setHalal(true);
+        existingProduct.setVegan(true);
+        existingProduct.setVegetarian(true);
+        existingProduct.setAvailability(Availability.FULL);
 
+        Product newProduct = new Product();
+        newProduct.setPrice(1);
+        newProduct.setIngredients("Mehl");
+        newProduct.setAllergens("Keine");
+        newProduct.setKosher(false);
+        newProduct.setHalal(false);
+        newProduct.setVegan(false);
+        newProduct.setVegetarian(false);
+        newProduct.setAvailability(Availability.EMPTY);
+
+        Product updatedProduct = productService.updateProductDetails(existingProduct, newProduct);
+        assertFalse(updatedProduct.isVegan() && updatedProduct.isHalal()
+                && updatedProduct.isKosher() && updatedProduct.isVegetarian());
     }
 }
