@@ -43,7 +43,7 @@ public class Product {
     private boolean kosher;
 
     @Column(name = "Availability")
-    private String availability;
+    private Availability availability;
 
     @Column(name = "Price")
     private float price;
@@ -157,12 +157,12 @@ public class Product {
         this.kosher = kosher;
     }
 
-    public String getAvailability() {
+    public Availability getAvailability() {
         return availability;
     }
 
     public void setAvailability(Availability availability) {
-        this.availability = availability.getDisplayValue();
+        this.availability = availability;
     }
 
     public float getPrice() {
@@ -174,11 +174,10 @@ public class Product {
     }
 
     public boolean setPrice(float price) {
-        if (id != null && String.valueOf(id).matches("\\d+")) {
+        if (!(String.valueOf(price)).matches("[+-]?([0-9]*[.])?[0-9]+"))
             return false;
-        } else {
-            this.price = price;
-        }
+
+        this.price = price;
         return true;
     }
 
