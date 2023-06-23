@@ -49,7 +49,7 @@ class ProductTest extends Product {
     // Test cases
 
     @Test
-    public void shouldSaveUser() {
+    public void shouldSaveProduct() {
         // Test saving a product
         Product product = new Product();
         Product savedProduct = repo.save(product);
