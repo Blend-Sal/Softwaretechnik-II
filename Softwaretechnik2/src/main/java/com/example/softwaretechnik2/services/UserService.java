@@ -2,7 +2,6 @@ package com.example.softwaretechnik2.services;
 
 import com.example.softwaretechnik2.model.Role;
 import com.example.softwaretechnik2.model.User;
-import com.example.softwaretechnik2.repositories.RoleRepository;
 import com.example.softwaretechnik2.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,15 +18,12 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    private RoleRepository roleRepository;
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
 
     public void saveUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        Role role = checkRole(user);
-        user.setRoles(List.of(role));
+        checkRole(user);
         userRepository.save(user);
     }
 
@@ -41,13 +37,11 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    private Role checkRole(User user) {
-        Role role = new Role();
+    private void checkRole(User user) {
         if(user.getEmail().contains("@asta-shop")){
-            role.setName("ROLE_EMPLOYEE");
+            user.getRoles().add(Role.USER);
         } else {
-            role.setName("ROLE_CLIENT");
+            user.getRoles().add(Role.EMPLOYEE);
         }
-        return roleRepository.save(role);
     }
 }

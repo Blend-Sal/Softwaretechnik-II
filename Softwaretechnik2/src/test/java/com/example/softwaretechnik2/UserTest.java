@@ -31,7 +31,7 @@ public class UserTest {
         user.setEmail("aiman.alali@example.com");
         user.setPassword("password123");
         user.setConfirmedPassword("password123");
-        user.getRoles().add(new Role());
+        user.getRoles().add(Role.USER);
 
         userRepository.save(user);
     }

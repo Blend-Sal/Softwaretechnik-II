@@ -49,7 +49,7 @@ public class AuthController {
         String password = user.getPassword();
         String confirmedPassword = user.getConfirmedPassword();
         Optional<User> existing = userService.findByEmail(email);
-        if (existing != null) {
+        if (existing.isPresent()) {
             result.rejectValue("email", null, "bereits registriert!");
         }
         if (!password.equals(confirmedPassword)) {
