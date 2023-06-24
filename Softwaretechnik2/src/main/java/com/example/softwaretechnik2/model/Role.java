@@ -9,21 +9,17 @@ import java.util.List;
  * Each role has a name and may be associated with multiple users.
  * This class is annotated as an entity, so it is mapped to a table in the database.
  */
-@Setter
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Entity
-@Table(name="roles")
-public class Role
-{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public enum Role {
+    USER("User"),
+    EMPLOYEE("Employee");
 
-    @Column(unique = true, length  = 55)
-    private String name;
+    private final String roleName;
 
-    @ManyToMany(mappedBy="roles")
-    private List<User> users;
+    Role(String roleName) {
+        this.roleName = roleName;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
 }
