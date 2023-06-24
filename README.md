@@ -13,3 +13,5 @@ To start the application, the prerequisite is to have Docker Desktop installed, 
     If necessary, manually start the container SWT2 if it doesn't start automatically.
 
 Following these steps, the application will be ready to run.
+And don't forget to change your SDK to Oracle OpenJDK version 20.0.1 and Language Level 20.
+
