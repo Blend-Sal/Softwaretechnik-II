@@ -1,18 +1,29 @@
 Verteilung der Issues und Anzahl an Story Points pro Sprint.
----------------------------------------------------------------
+_____________________________________________________________________________________________________
 Sprint 1:
 Story points geschafft: 76
-Issues ohne Mitgliedernamen wurden von allen Gruppenmitgliedern erledigt.
----------------------------------------------------------------
+Issues:
+	Startseite UI Design - Luis, Kjell: Luis, Kjell
+	Startseite UI Design - Blend, Leon, Igor: Blend, Leon, Igor
+	Startseite UI Design - Kawthar, Amin: Kawthar, Ali
+	Die Einschätzung des Gesamten Backlogs: Alle
+	DOD anlegen: Alle
+	Anlegung von Lanes: Blend
+	Lastenheft übertragen von User Stories und der Akzeptanzkriterien: Alle
+	Beschreibung des Prozesses: Alle
+	Aufgabenverteilung Sprint 2: Blend
+_____________________________________________________________________________________________________
 Sprint 2:
-Story Points geschafft: 50
+Story Points geschafft: 53
 Issues:
 	Datenbank ausreifen: Luis
 	Login Spring Security Fenster austauschen: Ali, Kawthar
 	QR-Code Implementierung: Blend, Igor, Leon
-----------------------------------------------------------------
+	Aufbau der Arbeitsfähighkeit: Alle
+	Aufgabenverteilung Sprint 3: Blend
+_____________________________________________________________________________________________________
 Sprint 3:
-Story points geschafft: 73
+Story points geschafft: 68
 Issues:	
 	Testkonzept erstellen und in DOD ergänzen: Alle
 	Produktseite erstellen: Kawthar, Ali
@@ -20,7 +31,8 @@ Issues:
 	Anpassungen Issues, Readme.MD, Branches: Blend
 	LF-150 Mitarbeiter legt neues Produkt an: Luis, Blend
 	Pipeline erstellen: Igor, Leon
------------------------------------------------------------------
+	Aufgabenverteilung Sprint 4: Blend
+_____________________________________________________________________________________________________
 Sprint 4:
 Story points geschafft: 68
 Issues:	
@@ -28,4 +40,14 @@ Issues:
 	Produktliste Kompalibität versichern und Anzeige genauer machen: Igor, Leon
 	LF-90 Kunde erstellt Konto: Kawthar, Ali
 	Einheitliche UI mit Bootstrap: Igor, Leon
------------------------------------------------------------------
+_____________________________________________________________________________________________________
+Sprint 5:
+Story points geschafft: 55
+Issues:	
+	LF–130 Mitarbeiter aktualisiert Öffnungszeiten: Blend, Luis
+	Usability Test vorbereiten und die Probleme die sich draus ergeben haben zu lösen: Blend, Luis
+	LF-100 Verfügbarkeit eines Produktes abfragen: Ali, Kawthar
+	Funktionsfähige Suchleiste: Igor, Leon
+	LF–110 Mitarbeiter ändert Produktinformationen: Blend, Luis
+	Stylisierung von der Startseite: Leon
+_____________________________________________________________________________________________________
