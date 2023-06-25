@@ -42,12 +42,13 @@ Issues:
 	Einheitliche UI mit Bootstrap: Igor, Leon
 _____________________________________________________________________________________________________
 Sprint 5:
-Story points geschafft: 55
+Story points geschafft: 60
 Issues:	
 	LF–130 Mitarbeiter aktualisiert Öffnungszeiten: Blend, Luis
 	Usability Test vorbereiten und die Probleme die sich draus ergeben haben zu lösen: Blend, Luis
 	LF-100 Verfügbarkeit eines Produktes abfragen: Ali, Kawthar
-	Funktionsfähige Suchleiste: Igor, Leon
+	Funktionsfähige Suchleiste: Leon
 	LF–110 Mitarbeiter ändert Produktinformationen: Blend, Luis
 	Stylisierung von der Startseite: Leon
+	Feinschliffe im Code: Leon, Luis, Blend, Igor
 _____________________________________________________________________________________________________
