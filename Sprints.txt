@@ -14,13 +14,14 @@ Issues:
 	Aufgabenverteilung Sprint 2: Blend
 _____________________________________________________________________________________________________
 Sprint 2:
-Story Points geschafft: 53
+Story Points geschafft: 58
 Issues:
 	Datenbank ausreifen: Luis
 	Login Spring Security Fenster austauschen: Ali, Kawthar
 	QR-Code Implementierung: Blend, Igor, Leon
 	Aufbau der Arbeitsfähighkeit: Alle
 	Aufgabenverteilung Sprint 3: Blend
+	Problembehandlung im Halbsprint Treffen: Alle
 _____________________________________________________________________________________________________
 Sprint 3:
 Story points geschafft: 68
@@ -42,7 +43,7 @@ Issues:
 	Einheitliche UI mit Bootstrap: Igor, Leon
 _____________________________________________________________________________________________________
 Sprint 5:
-Story points geschafft: 60
+Story points geschafft: 68
 Issues:	
 	LF–130 Mitarbeiter aktualisiert Öffnungszeiten: Blend, Luis
 	Usability Test vorbereiten und die Probleme die sich draus ergeben haben zu lösen: Blend, Luis
@@ -51,4 +52,5 @@ Issues:
 	LF–110 Mitarbeiter ändert Produktinformationen: Blend, Luis
 	Stylisierung von der Startseite: Leon
 	Feinschliffe im Code: Leon, Luis, Blend, Igor
+	Komplette Überarbeitung der Gruppenprotokolle: Blend
 _____________________________________________________________________________________________________
