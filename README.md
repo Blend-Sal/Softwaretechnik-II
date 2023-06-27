@@ -13,7 +13,8 @@ To start the application, the prerequisite is to have Docker Desktop installed, 
     
     docker run --name SWT2 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 -d mysql
     
-    And if a pop appears with "Enable Annotation Proccesing" click on enable.
+    If a pop appears with "Enable Annotation Proccesing" click on enable.
+    
     In Intellij you have to create a Database with following attributes:
         1. Open IntelliJ IDEA and go to the Database tool window.
         2. Click on the plus sign (+) or the "Add Data Source" button.
@@ -23,7 +24,7 @@ To start the application, the prerequisite is to have Docker Desktop installed, 
         6. Right-click on the created data source and "New Database".
         7. Enter the name "asta-shop" for the database.
         8. Save the changes.
-    then you have to create a database named "asta-shop".
+        
     If necessary, manually start the container SWT2 if it doesn't start automatically.
 
 Following these steps, the application will be ready to run.
