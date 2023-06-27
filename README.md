@@ -2,7 +2,7 @@
 The AStA-Shop is a retail establishment situated in Building 25 of TH-Lübeck, specializing in artisanal baked goods and other culinary delights. 
 Our objective was to enhance convenience and innovation by providing an online platform for product creation and reservation and much more!
 
-======================================================================================================================================================
+
 Application Part:
 
 To start the application, the prerequisite is to have Docker Desktop installed, which will allow us to run the application within a containerized environment, including a MySQL database. Here are the step-by-step instructions:
@@ -10,7 +10,9 @@ To start the application, the prerequisite is to have Docker Desktop installed, 
     Install Docker Desktop.
     Pull the MySQL image.
     Execute the following command in CMD or preferred shell: 
+    
     docker run --name SWT2 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 -d mysql
+    
     And if a pop appears with "Enable Annotation Proccesing" click on enable.
     In Intellij you have to create a Database with following attributes:
         1. Open IntelliJ IDEA and go to the Database tool window.
