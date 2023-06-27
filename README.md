@@ -9,7 +9,8 @@ To start the application, the prerequisite is to have Docker Desktop installed, 
 
     Install Docker Desktop.
     Pull the MySQL image.
-    Execute the following command: docker run --name SWT2 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 -d mysql
+    Execute the following command in CMD or preferred shell: 
+    docker run --name SWT2 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 -d mysql
     And if a pop appears with "Enable Annotation Proccesing" click on enable.
     In Intellij you have to create a Database with following attributes:
         1. Open IntelliJ IDEA and go to the Database tool window.
