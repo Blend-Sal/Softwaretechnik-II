@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
->
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -50,7 +50,8 @@
             <a class="navbar-brand" href="#"></a>
             <ul class="navbar-nav mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/qrcodeinput"
+                    <a sec:authorize="hasRole('ROLE_EMPLOYEE')" class="nav-link active" aria-current="page"
+                       href="/qrcodeinput"
                        th:onclick="|window.location.href='/product'|">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                              class="bi bi-qr-code-scan" viewBox="0 0 16 16">
@@ -63,7 +64,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/produkterstellung">Produkt erstellen</a>
+                    <a sec:authorize="hasRole('ROLE_EMPLOYEE')" class="nav-link active" aria-current="page"
+                       href="/produkterstellung">Produkt erstellen</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/productList">Sortiment</a>
@@ -90,7 +92,8 @@
     </div>
 </nav>
 <form class="d-flex m-auto w-25 mt-2 mb-2" th:action="@{/search}" method="get">
-    <input id="search-input" class="form-control me-2" type="search" name="query" placeholder="Search" list="suggestions"
+    <input id="search-input" class="form-control me-2" type="search" name="query" placeholder="Search"
+           list="suggestions"
            aria-label="Search">
     <datalist id="suggestions"></datalist>
     <button class="btn btn-outline-success" type="submit">Search</button>
@@ -198,17 +201,6 @@
         updateSuggestions(event.target.value);
     });
 
-
-    // Disable restricted links and show an alert if clicked
-    document.addEventListener('DOMContentLoaded', function () {
-        const restrictedLinks = document.querySelectorAll('.restricted-link.disabled-link');
-        restrictedLinks.forEach(link => {
-            link.addEventListener('click', function (event) {
-                event.preventDefault();
-                alert('Sie besitzen nicht die erforderlichen Rechte');
-            });
-        });
-    });
 
 </script>
 
