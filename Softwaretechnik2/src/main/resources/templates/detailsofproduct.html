@@ -90,7 +90,8 @@
                     <tr>
                         <th>Verfügbarkeit:</th>
                         <td>
-                            <span th:text="${product.getAvailability().getDisplayValue()}" th:unless="${editing}"></span>
+                            <span th:text="${product.getAvailability().getDisplayValue()}"
+                                  th:unless="${editing}"></span>
                             <label>
                                 <select name="availability" id="verfügbarkeit" class="form-control" th:if="${editing}">
                                     <option th:each="availabilityOpt : ${T(com.example.softwaretechnik2.model.Availability).values()}"
@@ -179,7 +180,9 @@
         <div class="qr-wrapper">
             <label for="qrcode">QR-Code:</label>
             <div class="mt-6 mb-4" id="qrcode"></div>
-            <button type="button" id="printButton" class="btn btn-primary">QR-Code Drucken</button>
+            <button th:disabled="${#authorization.expression('hasRole(''ROLE_CLIENT'')')}" type="button"
+                    id="printButton" class="btn btn-primary">QR-Code Drucken
+            </button>
         </div>
     </form>
 </div>
