@@ -1,7 +1,7 @@
 Verteilung der Issues und Anzahl an Story Points pro Sprint.
 _____________________________________________________________________________________________________
 Sprint 1:
-Story points geschafft: 76
+Story points geschafft: 81
 Issues:
 	Startseite UI Design - Luis, Kjell: Luis, Kjell
 	Startseite UI Design - Blend, Leon, Igor: Blend, Leon, Igor
