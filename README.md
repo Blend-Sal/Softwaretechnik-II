@@ -13,9 +13,9 @@ To start the application, the prerequisite is to have Docker Desktop installed, 
     
     docker run --name SWT2 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 -d mysql
     
-    If a pop appears with "Enable Annotation Proccesing" click on enable.
+    If a pop appears with "Enable Annotation Processing" click on enable.
     
-    In Intellij you have to create a Database with following attributes:
+    In Intellij you have to create a Database with the following attributes:
         1. Open IntelliJ IDEA and go to the Database tool window.
         2. Click on the plus sign (+) or the "Add Data Source" button.
         3. Select the database type MySQL.
